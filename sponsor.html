@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sponsor Team Avinya</title>
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="src/images/Avinya Logo.png" alt="Team Avinya Racing Logo" class="site-logo" /></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sponsor.html">Sponsor Us</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-down">
+    <h1>Partner With Team Avinya</h1>
+    <p>Support innovation. Shape the future. Get your brand on the track.</p>
+    <div class="sponsor-message">
+      <p>At Team Avinya, we're more than a team – we're a mission. Every bolt tightened, every wire connected, and every mile driven is powered by support like yours. Partner with us and fuel the future of innovation.</p>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2>Ways You Can Support Us</h2>
+    <div class="support-options">
+      <div class="option-card" data-aos="zoom-in">
+        <h3>💰 Financial Support</h3>
+        <p>Your funding helps us acquire critical components, cover logistics, and participate in national competitions. Every contribution directly accelerates our progress and impact.</p>
+      </div>
+      <div class="option-card" data-aos="zoom-in">
+        <h3>🎁 In-Kind Donations</h3>
+        <p>Donations of batteries, safety gear, tools, and materials empower us to build safer, more advanced vehicles and foster a culture of resourcefulness.</p>
+      </div>
+      <div class="option-card" data-aos="zoom-in">
+        <h3>🏭 Facility Access</h3>
+        <p>Access to manufacturing facilities and expert mentorship helps us turn ideas into reality, bridging the gap between classroom learning and real-world engineering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2>Sponsorship Form</h2>
+    <p class="form-intro">Fill out the form below to become a valued supporter of Team Avinya. Once you submit, our team will reach out to discuss partnership details and next steps. Thank you for considering a role in our journey!</p>
+    <form id="sponsorForm" class="sponsor-form">
+      <div class="form-group">
+        <input type="text" name="fullName" placeholder="Full Name" required>
+
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="company" placeholder="Company Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="mobile" placeholder="Mobile Number" required>
+
+      </div>
+      <div class="form-group">
+        <input type="url" name="website" placeholder="Company Website (if available)">
+      </div>
+      <div class="form-group">
+        <input type="text" name="location" placeholder="Company Location">
+      </div>
+      <div class="form-group">
+        <input type="number" name="amount" placeholder="Donation Amount (₹)" min="1" step="1">
+      </div>
+      <div class="form-group checkboxes">
+
+        <label>Type of Support:</label>
+        <label><input type="checkbox" name="supportType" value="Financial Support" /><span class="custom-checkbox"></span> Financial Support</label>
+        <label><input type="checkbox" name="supportType" value="In-Kind Donation" /><span class="custom-checkbox"></span> In-Kind Donation</label>
+        <label><input type="checkbox" name="supportType" value="Facility Access" /><span class="custom-checkbox"></span> Facility Access</label>
+      </div>
+      <div class="form-group">
+        <label for="message">Additional Message (Optional)</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn">Submit Sponsorship</button>
+    </form>
+  </section>
+
+  <div id="popup" class="popup-container">
+    <div class="popup-box">
+      <p><strong>✅ Thank you!</strong></p>
+      <p>Your support has been received. Our team will contact you soon to discuss partnership details. For urgent queries, email us at <a href='mailto:teamavinya@email.com'>teamavinya@email.com</a>.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="privacy.html" style="color:#fff;">Privacy Policy</a> | <a href="contact.html">Contact us here.</a></p>
+    <p>&copy; 2025 Team Avinya | Open Throttle Racing Club</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="src/js/script.js"></script>
+</body>
+</html>
