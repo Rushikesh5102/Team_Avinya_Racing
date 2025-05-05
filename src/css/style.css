@@ -1055,11 +1055,6 @@ footer::before {
   transition: all 0.5s ease;
   filter: drop-shadow(0 0 20px rgba(255, 60, 56, 0.3));
   animation: float 6s ease-in-out infinite;
-  border-radius: 20px 20px 20px 20px;
-  overflow: hidden;
-  padding: 10px 10px 10px 10px;
-  background: linear-gradient(180deg, rgba(30, 30, 30, 0.8) 0%, rgba(30, 30, 30, 0.4) 100%);
-  box-shadow: inset 0 0 30px rgba(255, 60, 56, 0.2);
 }
 
 .hero-buggy::before {
@@ -1072,7 +1067,6 @@ footer::before {
   background: linear-gradient(45deg, transparent, rgba(255, 60, 56, 0.1), transparent);
   z-index: 1;
   animation: shine 3s ease-in-out infinite;
-  border-radius: 20px 20px 0 0;
 }
 
 .hero-buggy::after {
@@ -1086,22 +1080,11 @@ footer::before {
   background: radial-gradient(ellipse at center, rgba(255, 60, 56, 0.4) 0%, transparent 70%);
   filter: blur(10px);
   animation: shadowPulse 6s ease-in-out infinite;
-  border-radius: 50%;
-}
-
-.hero-buggy img {
-  border-radius: 20px 20px 0 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 2;
 }
 
 .hero-buggy:hover {
   transform: scale(1.02) translateY(-5px);
   filter: drop-shadow(0 0 30px rgba(255, 60, 56, 0.5));
-  box-shadow: inset 0 0 40px rgba(255, 60, 56, 0.3);
 }
 
 @keyframes float {
@@ -1161,15 +1144,17 @@ footer::before {
 .cursor-trail {
   position: fixed;
   pointer-events: none;
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   background: var(--primary-color);
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.6;
   z-index: 9999;
-  transition: transform 0.1s ease, opacity 0.3s ease;
-  transform: translate(-50%, -50%);
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  transform: translate3d(-50%, -50%, 0);
   box-shadow: 0 0 10px var(--primary-color);
+  /* Removed filter blur for better performance */
+  will-change: transform;
 }
 
 .cursor-trail::before {
@@ -1177,12 +1162,41 @@ footer::before {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
-  height: 100%;
-  background: var(--primary-color);
-  border-radius: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
   transform: translate(-50%, -50%);
-  filter: blur(2px);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.cursor-trail::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
 }
 
 /* Media Queries */

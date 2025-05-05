@@ -2,8 +2,9 @@
 const CONFIG = {
   formEndpoint: 'https://script.google.com/macros/s/AKfycbzk6BvsFU55NlPvmT86bhpSBF0GISrkP5gBdQyBm9kfKkl3N1_7bU_TOPmtmUuuwD8/exec',
   cursorTrailEnabled: true, // Enable cursor trail
-  maxTrailLength: 20,
-  trailInterval: 5 // Create a new trail point every 5ms
+  maxTrailLength: 15,
+  trailInterval: 8,
+  trailFadeTime: 400
 };
 
 // Initialize AOS with better performance settings
@@ -296,36 +297,58 @@ document.head.appendChild(modalStyle);
 if (CONFIG.cursorTrailEnabled) {
   const trails = [];
   let lastTrailTime = 0;
+  let lastX = 0;
+  let lastY = 0;
+  let trailCleanupTimeout;
+
+  function cleanupTrails() {
+    while (trails.length > 0) {
+      const oldTrail = trails.shift();
+      oldTrail.style.opacity = '0';
+      oldTrail.style.transform = 'translate(-50%, -50%) scale(0.5)';
+      setTimeout(() => oldTrail.remove(), CONFIG.trailFadeTime);
+    }
+  }
 
   document.addEventListener('mousemove', (e) => {
     const now = Date.now();
     if (now - lastTrailTime >= CONFIG.trailInterval) {
-      const trail = document.createElement('div');
-      trail.className = 'cursor-trail';
-      trail.style.left = e.clientX + 'px';
-      trail.style.top = e.clientY + 'px';
-      document.body.appendChild(trail);
+      // Calculate distance from last position
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
       
-      trails.push(trail);
-      if (trails.length > CONFIG.maxTrailLength) {
-        const oldTrail = trails.shift();
-        oldTrail.remove();
+      // Only create trail if mouse has moved enough
+      if (distance > 2) {
+        const trail = document.createElement('div');
+        trail.className = 'cursor-trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        
+        // Scale opacity based on movement speed
+        const speed = Math.min(distance / 10, 1);
+        trail.style.opacity = (0.6 * speed).toString();
+        
+        document.body.appendChild(trail);
+        trails.push(trail);
+        
+        if (trails.length > CONFIG.maxTrailLength) {
+          const oldTrail = trails.shift();
+          oldTrail.style.opacity = '0';
+          oldTrail.style.transform = 'translate(-50%, -50%) scale(0.5)';
+          setTimeout(() => oldTrail.remove(), CONFIG.trailFadeTime);
+        }
+        
+        lastX = e.clientX;
+        lastY = e.clientY;
+        lastTrailTime = now;
+
+        // Reset trail cleanup timeout
+        if (trailCleanupTimeout) clearTimeout(trailCleanupTimeout);
+        trailCleanupTimeout = setTimeout(() => {
+          cleanupTrails();
+        }, 100);
       }
-      
-      // Fade out and remove trail
-      setTimeout(() => {
-        trail.style.opacity = '0';
-        trail.style.transform = 'translate(-50%, -50%) scale(0.5)';
-        setTimeout(() => {
-          trail.remove();
-          const index = trails.indexOf(trail);
-          if (index > -1) {
-            trails.splice(index, 1);
-          }
-        }, 300);
-      }, 100);
-      
-      lastTrailTime = now;
     }
   });
 } 
