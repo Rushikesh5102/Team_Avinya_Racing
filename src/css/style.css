@@ -139,6 +139,45 @@ header.scrolled {
   text-decoration: none;
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-light);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Navigation Styles */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
 nav ul {
   display: flex;
   gap: 1.5rem;
@@ -3532,5 +3571,418 @@ header .social-links {
   .creator-support-svg {
     width: 13px;
     height: 13px;
+  }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Mobile Menu */
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--background-light);
+    backdrop-filter: blur(15px);
+    transition: right 0.3s ease;
+    z-index: 100;
+    padding: 80px 2rem 2rem;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .nav-menu a {
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Header Layout */
+  header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .social-links {
+    order: -1;
+    margin-left: auto;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 4rem 1rem;
+    min-height: 60vh;
+  }
+  
+  .hero-flex {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .hero-text {
+    order: 1;
+  }
+  
+  .hero-image-buttons {
+    order: 2;
+  }
+  
+  .hero-buggy {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Section Improvements */
+  .section {
+    padding: 2rem 1rem;
+  }
+  
+  .welcome-section {
+    padding: 2rem 1rem;
+  }
+  
+  .welcome-subtitle {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .logo-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .logo-separator {
+    display: none;
+  }
+  
+  /* Grid Improvements */
+  .support-options {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .supporters-grid,
+  .events-grid,
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Form Improvements */
+  .contact-flex {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+  
+  /* Timeline Improvements */
+  .timeline li {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .timeline::after {
+    left: 20px;
+  }
+  
+  .timeline li:nth-child(odd),
+  .timeline li:nth-child(even) {
+    margin-left: 0;
+    margin-right: 0;
+    width: calc(100% - 60px);
+  }
+  
+  /* Department Cards */
+  .departments .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .departments .card {
+    padding: 1.5rem;
+  }
+  
+  /* BAJA Section */
+  .baja-flex {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .baja-logo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .baja-info {
+    text-align: center;
+  }
+  
+  .baja-rulebook-btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Header */
+  header {
+    padding: 0.8rem 1rem;
+  }
+  
+  .site-logo {
+    max-width: 120px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 3rem 1rem;
+    min-height: 50vh;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Sections */
+  .section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  /* Forms */
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Cards */
+  .option-card,
+  .supporter-card,
+  .event-card,
+  .media-card,
+  .team-card {
+    padding: 1.5rem;
+  }
+  
+  /* Typography */
+  .welcome-intro {
+    font-size: 1rem;
+  }
+  
+  .welcome-description {
+    font-size: 0.95rem;
+  }
+  
+  .welcome-cta-text {
+    font-size: 0.9rem;
+  }
+  
+  /* Logo Flow */
+  .logo-flow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .logo-flow img {
+    max-width: 120px;
+  }
+  
+  .arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra Small Screens */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  
+  .option-card h3,
+  .supporter-card h3,
+  .event-card h3,
+  .media-info h3,
+  .team-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .welcome-intro {
+    font-size: 0.95rem;
+  }
+  
+  .welcome-description {
+    font-size: 0.9rem;
+  }
+  
+  .logo-flow img {
+    max-width: 100px;
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .btn,
+  .option-card,
+  .team-card,
+  .media-card,
+  .event-card,
+  .supporter-card {
+    min-height: 44px;
+  }
+  
+  .nav-menu a {
+    padding: 1.2rem 0;
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .social-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .option-card:hover,
+  .team-card:hover,
+  .media-card:hover,
+  .event-card:hover,
+  .supporter-card:hover {
+    transform: none;
+  }
+  
+  /* Active states for touch */
+  .option-card:active,
+  .team-card:active,
+  .media-card:active,
+  .event-card:active,
+  .supporter-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Landscape Mobile Optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 2rem 1rem;
+    min-height: 40vh;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .welcome-section {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* High DPI Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .site-logo,
+  .otr-logo,
+  .adypu-logo,
+  .baja-logo,
+  .supporter-logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .mobile-menu-btn,
+  .social-links,
+  .back-to-top,
+  .trail-toggle-btn {
+    display: none !important;
+  }
+  
+  header {
+    position: static;
+    box-shadow: none;
+  }
+  
+  .hero {
+    background: none !important;
+    color: #000 !important;
+  }
+  
+  .section {
+    page-break-inside: avoid;
   }
 }

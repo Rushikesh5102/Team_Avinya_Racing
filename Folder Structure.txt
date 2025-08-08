@@ -1,0 +1,9 @@
+team-avinya/
+├── index.html
+├── sponsor.html
+├── css/
+│   └── style.css
+├── images/
+│   └── (for logos, buggies, etc.)
+└── js/
+    └── script.js (optional)

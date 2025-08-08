@@ -5,14 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Team Avinya | eBAJA Racing</title>
   <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/mobile-responsive.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="src/js/mobile-nav.js" defer></script>
 </head>
 <body>
   <header>
     <div class="logo">
       <a href="index.html"><img src="src/images/Avinya Logo.png" alt="Team Avinya Racing Logo" class="site-logo" /></a>
     </div>
-    <nav>
+    
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav class="nav-menu">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="sponsor.html">Sponsor Us</a></li>
@@ -21,6 +31,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    
     <div class="social-links">
       <a href="https://www.instagram.com/team_avinya_racing?igsh=ZGIwYWd0MDM3OWx4" class="social-icon instagram" target="_blank" aria-label="Follow us on Instagram">
         <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
