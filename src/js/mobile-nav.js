@@ -1,6 +1,7 @@
 /**
  * Mobile Navigation JavaScript
  * Handles mobile menu functionality for Team Avinya website
+ * Updated for checkbox-based navigation system
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,13 +13,54 @@ function initializeMobileNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
     
-    if (!mobileMenuBtn || !navMenu) return;
+    console.log('Mobile Navigation Initializing...');
+    console.log('Mobile Menu Button:', mobileMenuBtn);
+    console.log('Nav Menu:', navMenu);
+    console.log('Nav Links:', navLinks.length);
+    
+    if (!mobileMenuBtn || !navMenu) {
+        console.log('Mobile navigation elements not found');
+        return;
+    }
+    
+    console.log('Mobile navigation initialized successfully');
+    
+    // Create mobile menu overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-menu-overlay';
+    document.body.appendChild(overlay);
+    
+    // Create mobile social links container
+    const mobileSocialLinks = document.createElement('div');
+    mobileSocialLinks.className = 'mobile-social-links';
+    
+    // Clone social links for mobile menu
+    const socialLinks = document.querySelector('.social-links');
+    if (socialLinks) {
+        const socialIcons = socialLinks.querySelectorAll('.social-icon');
+        socialIcons.forEach(icon => {
+            const clonedIcon = icon.cloneNode(true);
+            mobileSocialLinks.appendChild(clonedIcon);
+        });
+    }
+    
+    // Add mobile social links to nav menu
+    navMenu.appendChild(mobileSocialLinks);
     
     // Toggle mobile menu
     mobileMenuBtn.addEventListener('click', function() {
+        console.log('Mobile menu button clicked');
         mobileMenuBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
         document.body.classList.toggle('menu-open');
+        console.log('Menu active:', navMenu.classList.contains('active'));
+    });
+    
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', function() {
+        mobileMenuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
     });
     
     // Close menu when clicking on a link

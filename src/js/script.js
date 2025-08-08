@@ -39,63 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeLoadingAnimation();
     initializeBackToTop();
     initializeCreatorSection();
-    initializeMobileNavigation();
 });
-
-// ============================================================================
-// MOBILE NAVIGATION
-// ============================================================================
-
-function initializeMobileNavigation() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    if (!mobileMenuBtn || !navMenu) return;
-    
-    // Toggle mobile menu
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenuBtn.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    });
-    
-    // Close menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenuBtn.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileMenuBtn.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    });
-    
-    // Handle escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            mobileMenuBtn.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            mobileMenuBtn.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    });
-}
 
 // ============================================================================
 // AOS ANIMATIONS
@@ -157,6 +101,18 @@ async function handleSponsorshipForm(event) {
         // Collect form data
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        
+        // Normalize website URL if provided
+        if (data.website && data.website.trim() !== '') {
+            data.website = normalizeWebsite(data.website);
+        }
+        
+        // Validate form data
+        const validation = validateFormData(data);
+        if (!validation.isValid) {
+            showErrorMessage(validation.errors.join('\n'));
+            return;
+        }
         
         // Handle checkboxes for support types
         const supportTypeCheckboxes = form.querySelectorAll('input[name="supportType"]:checked');
@@ -594,6 +550,109 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
+function isValidWebsite(website) {
+    if (!website || website.trim() === '') {
+        return true; // Empty is valid (optional field)
+    }
+    
+    // Remove leading/trailing whitespace
+    const cleanWebsite = website.trim();
+    
+    // Very flexible validation that accepts:
+    // - Any protocol: http://, https://, ftp://, etc.
+    // - Any domain format: example.com, www.example.com, sub.example.com
+    // - IP addresses: 192.168.1.1
+    // - Localhost: localhost, 127.0.0.1
+    // - Port numbers: example.com:8080
+    // - Paths: example.com/path
+    // - Query parameters: example.com?param=value
+    // - Fragments: example.com#section
+    // - Special characters in domain names
+    // - International domains (IDN)
+    // - Any valid URL format
+    
+    // Basic URL pattern that accepts almost anything that looks like a URL
+    const urlPattern = /^[a-zA-Z0-9+.-]+:\/\/[^\s]+$/;
+    
+    // Domain pattern for URLs without protocol
+    const domainPattern = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+    
+    // IP address pattern
+    const ipPattern = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    
+    // Localhost pattern
+    const localhostPattern = /^localhost(:\d+)?$/;
+    
+    // Check if it's a valid URL with protocol
+    if (urlPattern.test(cleanWebsite)) {
+        return true;
+    }
+    
+    // Check if it's a valid domain
+    if (domainPattern.test(cleanWebsite)) {
+        return true;
+    }
+    
+    // Check if it's an IP address
+    if (ipPattern.test(cleanWebsite)) {
+        return true;
+    }
+    
+    // Check if it's localhost
+    if (localhostPattern.test(cleanWebsite)) {
+        return true;
+    }
+    
+    // Additional checks for various URL formats
+    const additionalPatterns = [
+        // URLs with paths, queries, fragments
+        /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}(\/[^\s]*)?(\?[^\s]*)?(#[^\s]*)?$/,
+        // IP addresses with paths
+        /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(:\d+)?(\/[^\s]*)?(\?[^\s]*)?(#[^\s]*)?$/,
+        // Very permissive pattern for any string that might be a URL
+        /^[^\s]+$/
+    ];
+    
+    for (const pattern of additionalPatterns) {
+        if (pattern.test(cleanWebsite)) {
+            return true;
+        }
+    }
+    
+    // If all else fails, accept any non-empty string that doesn't contain only whitespace
+    return cleanWebsite.length > 0 && !/^\s+$/.test(cleanWebsite);
+}
+
+function normalizeWebsite(website) {
+    if (!website || website.trim() === '') {
+        return '';
+    }
+    
+    let normalized = website.trim();
+    
+    // If it already has a protocol, return as is
+    if (normalized.match(/^[a-zA-Z0-9+.-]+:\/\//)) {
+        return normalized;
+    }
+    
+    // If it's an IP address, add https://
+    if (normalized.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
+        return 'https://' + normalized;
+    }
+    
+    // If it's localhost, add https://
+    if (normalized.match(/^localhost(:\d+)?$/)) {
+        return 'https://' + normalized;
+    }
+    
+    // For domain names, add https:// if no protocol is present
+    if (!normalized.match(/^https?:\/\//)) {
+        normalized = 'https://' + normalized;
+    }
+    
+    return normalized;
+}
+
 /**
  * Validate form data
  * @param {Object} data - Form data
@@ -616,6 +675,13 @@ function validateFormData(data) {
     if (data.formType === 'sponsorship') {
         if (!data.company || data.company.trim() === '') {
             errors.push('Company name is required');
+        }
+        
+        // Website validation (optional field) - now accepts all types of URLs
+        if (data.website && data.website.trim() !== '') {
+            if (!isValidWebsite(data.website)) {
+                errors.push('Please enter a valid website URL. We accept any type of URL including domains, IP addresses, localhost, and URLs with paths or parameters.');
+            }
         }
     }
     
