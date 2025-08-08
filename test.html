@@ -1,0 +1,133 @@
+<html>
+<head>
+
+  <style>
+    body {
+      background-color: #111;
+      font-family: Arial, sans-serif;
+      color: #ccc;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 2rem;
+    }
+
+    .icon-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .icon-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+      transition: 0.3s ease;
+    }
+
+    /* Hover brand styles */
+    .icon-btn.instagram:hover {
+      background-color: rgba(225, 48, 108, 0.15);
+      box-shadow: 0 0 12px #e1306c;
+    }
+    .icon-btn.instagram:hover svg {
+      fill: #e1306c;
+    }
+
+    .icon-btn.linkedin:hover {
+      background-color: rgba(0, 119, 181, 0.15);
+      box-shadow: 0 0 12px #0077b5;
+    }
+    .icon-btn.linkedin:hover svg {
+      fill: #0077b5;
+    }
+
+    .icon-btn.email:hover {
+      background-color: rgba(255, 170, 0, 0.15);
+      box-shadow: 0 0 12px #ffaa00;
+    }
+    .icon-btn.email:hover svg {
+      fill: #ffaa00;
+    }
+
+    .icon-btn.support:hover {
+      background-color: rgba(255, 40, 40, 0.15);
+      box-shadow: 0 0 12px #ff2828;
+    }
+    .icon-btn.support:hover svg {
+      fill: #ff2828;
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      bottom: -38px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #222;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+    }
+
+    .icon-btn.support:hover .tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(5px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="social-icons">
+    <!-- Instagram -->
+    <a href="https://instagram.com/yourprofile" class="icon-btn instagram" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-93C381.8 41.5 350.4 33.3 315.1 31.6 279.3 30 168.7 30 132.9 31.6 97.6 33.3 66.2 41.5 39.9 67.8 13.6 94.1 5.4 125.5 3.7 160.8 2 196.6 2 307.2 3.7 343c1.7 35.3 9.9 66.7 36.2 93s57.7 34.5 93 36.2c35.8 1.6 146.4 1.6 182.2 0 35.3-1.7 66.7-9.9 93-36.2s34.5-57.7 36.2-93c1.6-35.8 1.6-146.4 0-182.2zM398.8 388c-7.8 19.5-22.9 34.6-42.4 42.4-29.3 11.7-98.7 9-132.3 9s-103 2.6-132.3-9c-19.5-7.8-34.6-22.9-42.4-42.4-11.7-29.3-9-98.7-9-132.3s-2.6-103 9-132.3c7.8-19.5 22.9-34.6 42.4-42.4 29.3-11.7 98.7-9 132.3-9s103-2.6 132.3 9c19.5 7.8 34.6 22.9 42.4 42.4 11.7 29.3 9 98.7 9 132.3s2.7 103-9 132.3z"/>
+        </svg>
+      </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/yourprofile" class="icon-btn linkedin" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.64 53.64 0 1 1 53.64-53.64 53.64 53.64 0 0 1-53.64 53.64zM447.9 448h-92.4V302.4c0-34.7-.7-79.3-48.4-79.3-48.4 0-55.8 37.8-55.8 76.9V448h-92.6V148.9h88.9v40.8h1.3c12.4-23.5 42.6-48.4 87.7-48.4 93.9 0 111.2 61.9 111.2 142.3V448z"/>
+      </svg>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:you@example.com" class="icon-btn email" aria-label="Email">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M502.3 190.8c3.9-3.1 9.7-0.2 9.7 4.6v213.3c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.4c0-4.8 5.7-7.7 9.7-4.6 22.4 17.1 52.1 39.4 154.1 113.6 21 15.7 56.7 48.6 92.2 48.5 35.5.1 71.3-32.8 92.2-48.5 102-74.3 131.7-96.6 154.1-113.6zM256 320c23.2.4 56.6-29.2 73.4-42.4 132.5-96.5 142.9-104.9 173.3-128.8 5.8-4.5 9.3-11.4 9.3-18.8V80c0-26.5-21.5-48-48-48H48C21.5 32 0 53.5 0 80v50c0 7.4 3.4 14.3 9.3 18.8 30.4 23.9 40.8 32.4 173.3 128.8 16.8 13.2 50.2 42.8 73.4 42.4z"/>
+      </svg>
+    </a>
+
+    <!-- Support -->
+    <a href="#contact" class="icon-btn support" aria-label="Tech Support">
+      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M313.6 304h-16.7c-22.2 10.3-46.8 16-72.9 16s-50.7-5.7-72.9-16h-16.7C60.8 304 0 364.8 0 440.3 0 460.6 15.6 476 35.9 476H412c20.3 0 36-15.4 36-35.7 0-75.5-60.8-136.3-134.4-136.3zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128z"/>
+      </svg>
+      <div class="tooltip">For queries or technical support</div>
+    </a>
+
+</body>
+</html>

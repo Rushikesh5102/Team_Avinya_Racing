@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found | Team Avinya</title>
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    /* 404 Page Specific Styles */
+    .error-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+      opacity: 0.1;
+      animation: gridMove 20s linear infinite;
+    }
+
+    .error-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      color: var(--primary-color);
+      margin: 0;
+      text-shadow: 0 0 30px rgba(255, 60, 56, 0.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .error-title {
+      font-size: 2.5rem;
+      color: var(--text-light);
+      margin: 1rem 0;
+      font-weight: 600;
+    }
+
+    .error-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .buggy-repair {
+      position: relative;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 60, 56, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .buggy-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .repair-text {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .charging-status {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin: 1rem 0;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .error-btn {
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .error-btn:hover {
+      background: #d63333;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 60, 56, 0.3);
+    }
+
+    .error-btn.secondary {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .error-btn.secondary:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .team-info {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 60, 56, 0.1);
+    }
+
+    .team-info h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .team-info p {
+      color: var(--text-muted);
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px rgba(46, 204, 113, 0.3); }
+      100% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.6); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 6rem;
+      }
+      
+      .error-title {
+        font-size: 2rem;
+      }
+      
+      .error-subtitle {
+        font-size: 1rem;
+      }
+      
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .error-btn {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-code {
+        font-size: 4rem;
+      }
+      
+      .error-title {
+        font-size: 1.5rem;
+      }
+      
+      .buggy-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-content" data-aos="fade-up">
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Oops! Page Not Found</h2>
+      <p class="error-subtitle">
+        Looks like this page took a wrong turn on the race track! 
+        Our buggy is currently being repaired and recharged.
+      </p>
+      
+      <div class="buggy-repair" data-aos="zoom-in" data-aos-delay="200">
+        <div class="buggy-icon">🏎️🔌</div>
+        <p class="repair-text">
+          <strong>Status:</strong> Buggy under maintenance
+        </p>
+        <div class="charging-status">
+          🔋 Recharging in progress...
+        </div>
+        <p class="repair-text">
+          Our team is working hard to get everything back on track!
+        </p>
+      </div>
+
+      <div class="error-actions">
+        <a href="index.html" class="error-btn">🏠 Go Home</a>
+        <a href="contact.html" class="error-btn secondary">📧 Contact Us</a>
+        <button onclick="history.back()" class="error-btn secondary">⬅️ Go Back</button>
+      </div>
+
+      <div class="team-info" data-aos="fade-up" data-aos-delay="400">
+        <h3>🏎️ Team Avinya</h3>
+        <p><strong>Open Throttle Racing Club</strong> | ADYPU</p>
+        <p>Email: <a href="mailto:team.avinya.adypu@gmail.com" style="color: var(--primary-color);">team.avinya.adypu@gmail.com</a></p>
+        <p>Location: Ajeenkya DY Patil University, Pune, India</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+
+    // Add some interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      const chargingStatus = document.querySelector('.charging-status');
+      const buggyIcon = document.querySelector('.buggy-icon');
+      
+      // Simulate charging progress
+      let progress = 0;
+      const chargingInterval = setInterval(() => {
+        progress += 0.1;
+        if (progress <= 100) {
+          chargingStatus.textContent = `🔋 Recharging... ${progress}%`;
+        } else {
+          clearInterval(chargingInterval);
+          chargingStatus.textContent = '✅ Fully Charged!';
+          chargingStatus.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+        }
+      }, 1000);
+
+      // Add click effect to buggy icon
+      buggyIcon.addEventListener('click', function() {
+        this.style.transform = 'scale(1.2) rotate(360deg)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html> 
