@@ -1,32 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Team Avinya</title>
-  <link rel="stylesheet" href="src/css/style.css" />
-  <link rel="stylesheet" href="src/css/mobile-responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <title>About Team Avinya - Our Story, Members & Mission | SAEINDIA eBAJA | ADYPU</title>
+  <meta name="description" content="Learn about Team Avinya's journey, meet our passionate members, and discover our mission to build innovative electric ATVs for SAEINDIA eBAJA competition.">
+  <meta name="keywords" content="Team Avinya about, team members, electric ATV team, SAEINDIA eBAJA, ADYPU racing team, student engineering, Open Throttle Racing Club, Ajeenkya DY Patil University">
+  <meta name="author" content="Team Avinya">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="About Team Avinya - Our Story, Members & Mission">
+  <meta property="og:description" content="Learn about Team Avinya's journey, meet our passionate members, and discover our mission to build innovative electric ATVs for SAEINDIA eBAJA competition.">
+  <meta property="og:image" content="https://teamavinyaracing.com/src/images/Avinya Logo.png">
+  <meta property="og:url" content="https://teamavinyaracing.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Team Avinya Racing">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Team Avinya - Our Story, Members & Mission">
+  <meta name="twitter:description" content="Learn about Team Avinya's journey, meet our passionate members, and discover our mission to build innovative electric ATVs for SAEINDIA eBAJA competition.">
+  <meta name="twitter:image" content="https://teamavinyaracing.com/src/images/Avinya Logo.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://teamavinyaracing.com/about.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="src/images/Avinya Logo.png">
+  <link rel="apple-touch-icon" href="src/images/Avinya Logo.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Team Avinya",
+    "description": "Learn about Team Avinya's journey, meet our passionate members, and discover our mission to build innovative electric ATVs for SAEINDIA eBAJA competition.",
+    "url": "https://teamavinyaracing.com/about.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Team Avinya",
+      "description": "Student-led electric ATV racing team from Ajeenkya DY Patil University",
+      "foundingDate": "2023",
+      "member": [
+        {
+          "@type": "Person",
+          "name": "Rushikesh Pattiwar",
+          "jobTitle": "Developer & Team Member",
+          "description": "Electrical Systems | Web Management"
+        }
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-400XYKW3HW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-400XYKW3HW');
+  </script>
+  
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/responsive.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="src/js/mobile-nav.js" defer></script>
+  <script src="src/js/script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="logo">
       <a href="index.html"><img src="src/images/Avinya Logo.png" alt="Team Avinya Racing Logo" class="site-logo" /></a>
     </div>
-    
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
     
-    <nav class="nav-menu">
+    <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="sponsor.html">Sponsor Us</a></li>
-        <li><a href="about.html">About</a></li>
+                    <li><a href="sponsor.html">Sponsor Us</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -50,8 +113,6 @@
           <path d="M502.3 190.8c3.9-3.1 9.7-0.2 9.7 4.6v213.3c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.4c0-4.8 5.7-7.7 9.7-4.6 22.4 17.1 52.1 39.4 154.1 113.6 21 15.7 56.7 48.6 92.2 48.5 35.5.1 71.3-32.8 92.2-48.5 102-74.3 131.7-96.6 154.1-113.6zM256 320c23.2.4 56.6-29.2 73.4-42.4 132.5-96.5 142.9-104.9 173.3-128.8 5.8-4.5 9.3-11.4 9.3-18.8V80c0-26.5-21.5-48-48-48H48C21.5 32 0 53.5 0 80v50c0 7.4 3.4 14.3 9.3 18.8 30.4 23.9 40.8 32.4 173.3 128.8 16.8 13.2 50.2 42.8 73.4 42.4z"/>
         </svg>
       </a>
-      
-      <!-- Creator Support Icon -->
       <a href="#creator" class="social-icon support">
         <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
           <path d="M313.6 304h-16.7c-22.2 10.3-46.8 16-72.9 16s-50.7-5.7-72.9-16h-16.7C60.8 304 0 364.8 0 440.3 0 460.6 15.6 476 35.9 476H412c20.3 0 36-15.4 36-35.7 0-75.5-60.8-136.3-134.4-136.3zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128z"/>
@@ -66,53 +127,74 @@
     <p>Where innovation meets adrenaline — building tomorrow's electric ATVs today.</p>
   </section>
 
-  <section class="ecosystem-identity" data-aos="fade-up">
+  <section class="ecosystem-identity" data-aos="fade-up" id="who-we-are">
     <h2>Who We Are</h2>
 
-    <!-- Horizontal Logo Flow -->
     <div class="logo-flow">
               <a href="contact.html#map" class="logo-link">
-          <img src="src/images/ADYPU SOE LOGO.png" alt="ADYPU Logo" />
+          <img src="src/images/ADYPU SOE LOGO.png" alt="Ajeenkya DY Patil University School of Engineering Logo" />
         </a>
       <span class="arrow">→</span>
-      <img src="src/images/Open Throttle Racing Club Logo.png" alt="OTR Logo" />
+              <img src="src/images/Open Throttle Racing Club Logo.png" alt="Open Throttle Racing Club Logo at ADYPU" />
       <span class="arrow">→</span>
-      <img src="src/images/Avinya Logo.png" alt="Team Avinya Logo" />
+              <img src="src/images/Avinya Logo.png" alt="Team Avinya Electric ATV Racing Team Logo" />
       <span class="arrow">→</span>
-      <img src="src/images/Baja SAEINDIA Logo.png" alt="eBAJA Logo" />
+              <img src="src/images/Baja SAEINDIA Logo.png" alt="SAEINDIA eBAJA Electric ATV Competition Logo" />
     </div>
-
-    <!-- Descriptive Paragraph -->
     <p class="who-we-are-description">
       <strong>Team Avinya</strong> is the heartbeat of the Open Throttle Racing Club at <strong>ADYPU</strong>. We're a student-led team driven by a passion for electric mobility, sustainable engineering, and real-world innovation.
-      Under the mentorship and support of <strong>O.T.R</strong>, we collaborate across disciplines — mechanical, electrical, and computer science — to design, build, and race high-performance electric ATVs.  
+      Under the <strong>O.T.R Club</strong>, we collaborate across disciplines — mechanical, electrical, and computer science — to design, build, and race high-performance electric ATVs.  
       <br /><br />
       Our team proudly represents the university at national platforms like <strong>SAEINDIA eBAJA</strong> and other ATV competitions, showcasing a blend of creativity, technical skill, and teamwork.
       We believe in learning by doing and pushing the limits of what's possible.
     </p>
   </section>
 
-  <section class="section" data-aos="fade-up">
+  <section class="section" data-aos="fade-up" id="our-journey">
     <h2>Our Journey</h2>
     <div class="timeline">
       <ul>
         <li data-aos="fade-right">
-          <strong>2023:</strong> Team Avinya was founded by a group of passionate students determined to make a mark in the world of electric mobility. Despite being a new team, our hard work and interdisciplinary collaboration allowed us to compete on par with long-standing competitors.
+          <strong>2023:</strong> Team Avinya founded by passionate students. Despite being new, our interdisciplinary collaboration allowed us to compete with established teams.
         </li>
         <li data-aos="fade-left">
-          <strong>2024:</strong> Built and tested our first prototype, overcoming technical and logistical challenges. This milestone proved our ability to turn ideas into reality and set the stage for future competitions.
+          <strong>2024:</strong> Built and tested our first prototype, overcoming technical challenges. Proved our ability to turn ideas into reality.
         </li>
         <li data-aos="fade-right">
-          <strong>2025:</strong> First eBAJA competition: cleared all major tests, including the Weight Test, Mechanical and Electrical Technical Inspections, and the Validation Test. Our team endured the Rainstorm Test and emerged stronger, earning recognition from industry experts and our university's Honorable Chairman.
+          <strong>2025:</strong> First eBAJA competition: cleared Weight Test, <strong>Mechanical</strong> and <strong>Electrical</strong> Technical Inspections, and Validation Test. Endured Rainstorm Test, earning recognition from industry experts.
         </li>
         <li data-aos="fade-left">
-          <strong>2025:</strong> Felicitated by Honorable Chairman and recognized by industry leaders for our innovation, teamwork, and resilience. Our journey is just beginning, and we are excited for what lies ahead.
+          <strong>2025:</strong> Felicitated by Honorable Chairman for innovation, teamwork, and resilience. Our journey continues with excitement for the future.
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="section" data-aos="fade-up">
+  <section class="section" data-aos="fade-up" id="achievements">
+    <h2>Achievements</h2>
+    <div class="support-options">
+      <div class="option-card" data-aos="zoom-in">
+        <img src="src\images\Gallery\Images\Weight test.png" alt="Weight Test"
+             style="width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
+        <h3>🏆 Weight Test</h3>
+        <p>Successfully cleared the vehicle weight requirements, demonstrating our commitment to efficiency and smart engineering.</p>
+      </div>
+      <div class="option-card" data-aos="zoom-in">
+        <img src="src\images\Gallery\Images\Proof of clearing technical inspection.jpg" alt="Technical Inspection"
+             style="width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
+        <h3>🔧 Technical Inspection</h3>
+        <p>Passed both <strong>Mechanical</strong> & <strong>Electrical</strong> technical inspections, validating our design, safety, and attention to detail.</p>
+      </div>
+      <div class="option-card" data-aos="zoom-in">
+        <img src="src\images\Gallery\Images\Rainstorm Test.png" alt="Rainstorm Test"
+             style="width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
+        <h3>🌧️ Rainstorm Test</h3>
+        <p>Completed the challenging rainstorm endurance test, proving our ATV's durability and our team's resilience under pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up" id="departments">
     <h2>Departments</h2>
     <div class="departments">
       <div class="grid">
@@ -143,32 +225,9 @@
       </div>
     </div>
   </section>
-  <section class="section" data-aos="fade-up">
-    <h2>Achievements</h2>
-    <div class="support-options">
-      <div class="option-card" data-aos="zoom-in">
-        <img src="src\images\Gallery\Images\Weight test.png" alt="Weight Test"
-             style="width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
-        <h3>🏆 Weight Test</h3>
-        <p>Successfully cleared the vehicle weight requirements, demonstrating our commitment to efficiency and smart engineering.</p>
-      </div>
-      <div class="option-card" data-aos="zoom-in">
-        <img src="src\images\Gallery\Images\Proof of clearing technical inspection.jpg" alt="Technical Inspection"
-             style="width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
-        <h3>🔧 Technical Inspection</h3>
-        <p>Passed both mechanical and electrical inspections, validating our design, safety, and attention to detail.</p>
-      </div>
-      <div class="option-card" data-aos="zoom-in">
-        <img src="src\images\Gallery\Images\Rainstorm Test.png" alt="Rainstorm Test"
-             style="width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
-        <h3>🌧️ Rainstorm Test</h3>
-        <p>Completed the challenging rainstorm endurance test, proving our ATV's durability and our team's resilience under pressure.</p>
-      </div>
-    </div>
-  </section>
   
 
-  <section class="section" data-aos="fade-up">
+  <section class="section" data-aos="fade-up" id="team-in-action">
     <h2>Our Team in Action</h2>
     <div class="gallery">
       <div class="gallery-item">
@@ -194,7 +253,7 @@
   </section>
   
 
-  <section class="section team-section" data-aos="fade-up">
+  <section class="section team-section" data-aos="fade-up" id="members-panel">
     <h2>Team Avinya – Members Panel</h2>
     
     <!-- Leadership -->
@@ -231,6 +290,16 @@
             <div class="team-bio">Guiding light of Team Avinya. <em>"Inspire. Mentor. Innovate."</em></div>
           </div>
         </div>
+        <div class="team-card" data-aos="zoom-in">
+          <div class="team-card-front">
+            <span class="team-icon">🎓</span>
+            <h3>Dr. Vivek Gupta</h3>
+            <p>Faculty Adviser</p>
+          </div>
+          <div class="team-card-back">
+            <div class="team-bio">Keeps the team engaged and motivated. <em>"Inspire. Mentor. Innovate."</em></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -249,14 +318,16 @@
           </div>
         </div>
         <div class="team-card" data-aos="zoom-in">
-          <div class="team-card-front">
-            <span class="team-icon">⚡</span>
-            <h3>Rushikesh Pattiwar</h3>
-            <p>Electrical Systems | Web Management</p>
-          </div>
-          <div class="team-card-back">
-            <div class="team-bio">Handles both the current and the code. <em>"Where electricity meets the web."</em></div>
-          </div>
+          <a href="#creator" class="team-card-link">
+            <div class="team-card-front">
+              <span class="team-icon">⚡</span>
+              <h3>Rushikesh Pattiwar</h3>
+              <p>Electrical Systems &</p> <p>Web Management</p>
+            </div>
+            <div class="team-card-back">
+              <div class="team-bio">Handles both the current and the code. <em>"Where electricity meets the web."</em> <span class="creator-link-hint">👨‍💻 Click to view Developer profile</span></div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -559,28 +630,34 @@
   <section class="section creator-section" data-aos="fade-up" id="creator">
     <div class="creator-container">
       <div class="creator-header" data-aos="zoom-in">
-        
-        <h2 class="creator-title">👨‍💻 Creator</h2>
+        <h2 class="creator-title">👨‍💻 Developer</h2>
         <div class="creator-subtitle">Rushikesh Pattiwar</div>
-        <div class="creator-role">Developer & Team Member</div>
+        <div class="creator-role">Developer & Team Member – Team Avinya</div>
+        <div class="creator-motto">"Built in Silence, Speaks Forever"</div>
       </div>
 
       <div class="creator-content" data-aos="fade-up">
         <div class="creator-bio">
           <p class="creator-text">
-            As a member of <span class="highlight">Team Avinya</span> and a <span class="highlight">B.Tech CSE</span> student at <span class="highlight">ADYPU</span>, I had the privilege of designing and developing this website to represent our collective efforts. This platform reflects the hard work, spirit, and collaboration of every team member. If you have any questions, feedback, or just want to connect, feel free to reach out.
+            As a proud member of <span class="highlight">Team Avinya</span> and a <span class="highlight">B.Tech CSE</span> student at <span class="highlight">ADYPU</span>, I had the honor of designing and developing this website to showcase our vision and teamwork.
+          </p>
+          <p class="creator-text">
+            Every pixel and every line of code reflects the dedication, creativity, and spirit that define our team.
+          </p>
+          <p class="creator-text">
+            Have ideas, feedback, or just want to say hi? I'm always open to connecting.
           </p>
         </div>
 
         <div class="creator-social" data-aos="fade-up">
-          <h3>Connect With Me</h3>
+          <h3>Connect with Me</h3>
           <div class="social-icons">
-            <a href="https://github.com/rushikeshpattiwar" target="_blank" class="social-icon-link github">
+            <a href="https://github.com/Rushikesh5102" target="_blank" class="social-icon-link github">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
             </a>
-            <a href="https://linkedin.com/in/rushikesh-pattiwar" target="_blank" class="social-icon-link linkedin">
+            <a href="https://www.linkedin.com/in/rushikeshpattiwar" target="_blank" class="social-icon-link linkedin">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
@@ -596,12 +673,544 @@
     </div>
   </section>
 
-  <footer>
-    <p><a href="privacy.html">Privacy Policy</a></p>
-    <p>&copy; 2025 Team Avinya | Open Throttle Racing Club</p>
-  </footer>
+          <footer>
+          <div class="footer-content">
+            <p><a href="#" class="footer-link">Privacy Policy</a> | &copy; 2025 Team Avinya — All Rights Reserved</p>
+          </div>
+          <p>Designed & Developed with ❤️ by <a href="https://github.com/rushikeshpattiwar" class="footer-link" target="_blank">Rushikesh Pattiwar</a></p>
+        </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-button" aria-label="Back to top" title="Back to top">
+    <svg class="back-to-top-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="currentColor"/>
+    </svg>
+  </button>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="src/js/script.js"></script>
+  <script src="src/js/sidebar.js" defer></script>
+  
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="cookie-popup">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <span class="cookie-icon">🍪</span>
+        <p>We use cookies to enhance your experience and analyze site traffic.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="accept-all" class="btn btn-primary">Accept All</button>
+        <button id="reject-all" class="btn btn-secondary">Reject All</button>
+        <button id="cookie-settings" class="btn btn-link">Cookie Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div id="cookie-modal" class="cookie-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🍪 Cookie Preferences</h3>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="essential" checked disabled>
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Essential</strong>
+              <span>Required for the website to function properly</span>
+            </div>
+          </label>
+        </div>
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="analytics" checked>
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Analytics</strong>
+              <span>Help us understand how visitors interact with our website</span>
+            </div>
+          </label>
+        </div>
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="marketing">
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Marketing</strong>
+              <span>Used to deliver personalized advertisements</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="save-preferences" class="btn btn-primary">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Cookie Popup Styles */
+    .cookie-popup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 16px 20px;
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dark mask overlay when cookie popup is visible */
+    .cookie-popup::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cookie-popup.show::before {
+      opacity: 1;
+    }
+
+    .cookie-popup.show {
+      transform: translateY(0);
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Desktop-specific positioning to avoid back-to-top button */
+    @media (min-width: 769px) {
+      .cookie-content {
+        margin: 0 20px 0 20px;
+        justify-content: flex-start;
+        gap: 30px;
+      }
+      
+      .cookie-text {
+        flex: 0 1 auto;
+        max-width: 600px;
+      }
+      
+      .cookie-buttons {
+        flex-shrink: 0;
+      }
+    }
+
+    .cookie-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .cookie-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .cookie-text p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: #ff3c38;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #e63531;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-link {
+      background: transparent;
+      color: #ff3c38;
+      padding: 8px 0;
+    }
+
+    .btn-link:hover {
+      color: #ff6b6b;
+      text-decoration: underline;
+      background: rgba(255, 60, 56, 0.1);
+      border-radius: 4px;
+      padding: 8px 8px;
+    }
+
+    /* Modal Styles */
+    .cookie-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(15px);
+      border-radius: 12px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 0;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: #ff3c38;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #999;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .modal-body {
+      padding: 20px 24px;
+    }
+
+    .cookie-category {
+      margin-bottom: 16px;
+    }
+
+    .cookie-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .cookie-toggle {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .cookie-toggle:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .toggle-slider {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    input[type="checkbox"]:checked + .toggle-slider {
+      background: #ff3c38;
+    }
+
+    input[type="checkbox"]:checked + .toggle-slider::before {
+      transform: translateX(20px);
+    }
+
+    input[type="checkbox"]:disabled + .toggle-slider {
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0.6;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .toggle-content {
+      flex: 1;
+    }
+
+    .toggle-content strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .toggle-content span {
+      font-size: 12px;
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+
+    .modal-footer {
+      padding: 0 24px 24px;
+      text-align: right;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .cookie-text {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .cookie-buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .modal-content {
+        margin: 20px;
+        max-width: none;
+      }
+
+      .modal-header,
+      .modal-body,
+      .modal-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cookie-popup {
+        padding: 12px 16px;
+      }
+
+      .cookie-text p {
+        font-size: 13px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <script>
+    // Cookie Consent Functionality
+    class CookieConsent {
+      constructor() {
+        this.popup = document.getElementById('cookie-popup');
+        this.modal = document.getElementById('cookie-modal');
+        this.init();
+      }
+
+      init() {
+        // Check if user has already made a choice
+        if (localStorage.getItem('cookieConsent')) {
+          return;
+        }
+
+        // Show popup with animation
+        setTimeout(() => {
+          this.popup.classList.add('show');
+        }, 1000);
+
+        this.bindEvents();
+      }
+
+      bindEvents() {
+        // Accept all cookies
+        document.getElementById('accept-all').addEventListener('click', () => {
+          this.savePreferences({
+            essential: true,
+            analytics: true,
+            marketing: true
+          });
+          this.hidePopup();
+        });
+
+        // Reject all cookies
+        document.getElementById('reject-all').addEventListener('click', () => {
+          this.savePreferences({
+            essential: true,
+            analytics: false,
+            marketing: false
+          });
+          this.hidePopup();
+        });
+
+        // Open settings modal
+        document.getElementById('cookie-settings').addEventListener('click', () => {
+          this.showModal();
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', () => {
+          this.hideModal();
+        });
+
+        // Save preferences
+        document.getElementById('save-preferences').addEventListener('click', () => {
+          const preferences = {
+            essential: true, // Always required
+            analytics: document.getElementById('analytics').checked,
+            marketing: document.getElementById('marketing').checked
+          };
+          this.savePreferences(preferences);
+          this.hideModal();
+          this.hidePopup();
+        });
+
+        // Close modal when clicking outside
+        this.modal.addEventListener('click', (e) => {
+          if (e.target === this.modal) {
+            this.hideModal();
+          }
+        });
+      }
+
+      showModal() {
+        this.modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      hideModal() {
+        this.modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      hidePopup() {
+        this.popup.classList.remove('show');
+        setTimeout(() => {
+          this.popup.style.display = 'none';
+        }, 400);
+      }
+
+      savePreferences(preferences) {
+        localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+        localStorage.setItem('cookiesAccepted', 'custom');
+        localStorage.setItem('analyticsCookies', preferences.analytics.toString());
+        localStorage.setItem('marketingCookies', preferences.marketing.toString());
+        localStorage.setItem('essentialCookies', 'true');
+      }
+    }
+
+    // Initialize cookie consent when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new CookieConsent();
+    });
+  </script>
 </body>
 </html>

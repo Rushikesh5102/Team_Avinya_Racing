@@ -1,32 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery | Team Avinya</title>
-  <link rel="stylesheet" href="src/css/style.css" />
-  <link rel="stylesheet" href="src/css/mobile-responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <title>Team Avinya Gallery - Photos & Videos | SAEINDIA eBAJA Competition | ADYPU</title>
+  <meta name="description" content="Explore Team Avinya's journey through photos and videos - from workshop to racetrack. See our electric ATV manufacturing, testing, and SAEINDIA eBAJA competition moments.">
+  <meta name="keywords" content="Team Avinya gallery, electric ATV photos, SAEINDIA eBAJA competition, ADYPU racing team, student engineering photos, electric vehicle manufacturing, racing videos">
+  <meta name="author" content="Team Avinya">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Team Avinya Gallery - Photos & Videos">
+  <meta property="og:description" content="Explore Team Avinya's journey through photos and videos - from workshop to racetrack. See our electric ATV manufacturing, testing, and SAEINDIA eBAJA competition moments.">
+  <meta property="og:image" content="https://teamavinyaracing.com/src/images/Avinya Logo.png">
+  <meta property="og:url" content="https://teamavinyaracing.com/gallery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Team Avinya Racing">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team Avinya Gallery - Photos & Videos">
+  <meta name="twitter:description" content="Explore Team Avinya's journey through photos and videos - from workshop to racetrack. See our electric ATV manufacturing, testing, and SAEINDIA eBAJA competition moments.">
+  <meta name="twitter:image" content="https://teamavinyaracing.com/src/images/Avinya Logo.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://teamavinyaracing.com/gallery.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="src/images/Avinya Logo.png">
+  <link rel="apple-touch-icon" href="src/images/Avinya Logo.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Team Avinya Gallery",
+    "description": "Explore Team Avinya's journey through photos and videos - from workshop to racetrack.",
+    "url": "https://teamavinyaracing.com/gallery.html",
+    "mainEntity": {
+      "@type": "ImageGallery",
+      "name": "Team Avinya Competition Gallery",
+      "description": "Photos and videos from SAEINDIA eBAJA competition and team activities",
+      "creator": {
+        "@type": "Organization",
+        "name": "Team Avinya"
+      }
+    }
+  }
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-400XYKW3HW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-400XYKW3HW');
+  </script>
+  
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/responsive.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="src/js/mobile-nav.js" defer></script>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="src/images/Gallery/Images/Photo taken on the day of the inaugration.jpg" as="image">
+  <link rel="preload" href="src/images/Gallery/Images/Photo taken on the day of the inaugration with Vice chancellor, Dean and faculty adviser.jpg" as="image">
+  <link rel="preload" href="src/images/Gallery/Images/Buggy ready for Inaugration.jpg" as="image">
+  
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//unpkg.com">
+  
+  <script src="src/js/script.js" defer></script>
 </head>
 <body>
   <header>
     <div class="logo">
       <a href="index.html"><img src="src/images/Avinya Logo.png" alt="Team Avinya Racing Logo" class="site-logo" /></a>
     </div>
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
     
-    <nav class="nav-menu">
+    <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="sponsor.html">Sponsor Us</a></li>
+                    <li><a href="sponsor.html">Sponsor Us</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -46,8 +114,6 @@
           <path d="M502.3 190.8c3.9-3.1 9.7-0.2 9.7 4.6v213.3c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.4c0-4.8 5.7-7.7 9.7-4.6 22.4 17.1 52.1 39.4 154.1 113.6 21 15.7 56.7 48.6 92.2 48.5 35.5.1 71.3-32.8 92.2-48.5 102-74.3 131.7-96.6 154.1-113.6zM256 320c23.2.4 56.6-29.2 73.4-42.4 132.5-96.5 142.9-104.9 173.3-128.8 5.8-4.5 9.3-11.4 9.3-18.8V80c0-26.5-21.5-48-48-48H48C21.5 32 0 53.5 0 80v50c0 7.4 3.4 14.3 9.3 18.8 30.4 23.9 40.8 32.4 173.3 128.8 16.8 13.2 50.2 42.8 73.4 42.4z"/>
         </svg>
       </a>
-      
-      <!-- Creator Support Icon -->
       <a href="about.html#creator" class="social-icon support">
         <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
           <path d="M313.6 304h-16.7c-22.2 10.3-46.8 16-72.9 16s-50.7-5.7-72.9-16h-16.7C60.8 304 0 364.8 0 440.3 0 460.6 15.6 476 35.9 476H412c20.3 0 36-15.4 36-35.7 0-75.5-60.8-136.3-134.4-136.3zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128z"/>
@@ -59,100 +125,136 @@
 
   <section class="hero" data-aos="fade-down">
     <h1>Gallery</h1>
-    <p>Explore our journey through photos and videos – from the workshop to the racetrack!</p>
+          <p>Explore our journey through photos and videos – from the workshop to the racetrack!</p>
+  </section>
+
+  <section class="quick-nav" data-aos="fade-up">
+    <div class="container">
+      <h3>Quick Navigation</h3>
+      <div class="nav-links">
+        <a href="#special-moments" class="nav-link">
+          <span class="nav-icon">🌟</span>
+          <span class="nav-text">Special Moments</span>
+        </a>
+        <a href="#manufacturing" class="nav-link">
+          <span class="nav-icon">🔧</span>
+          <span class="nav-text">Manufacturing</span>
+        </a>
+        <a href="#testing" class="nav-link">
+          <span class="nav-icon">🧪</span>
+          <span class="nav-text">Testing</span>
+        </a>
+        <a href="#inspection" class="nav-link">
+          <span class="nav-icon">🔍</span>
+          <span class="nav-text">Inspection</span>
+        </a>
+        <a href="#inauguration" class="nav-link">
+          <span class="nav-icon">🚗</span>
+          <span class="nav-text">Inauguration</span>
+        </a>
+        <a href="#competition" class="nav-link">
+          <span class="nav-icon">🏁</span>
+          <span class="nav-text">Competition</span>
+        </a>
+        <a href="#photos" class="nav-link">
+          <span class="nav-icon">📸</span>
+          <span class="nav-text">Photos</span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- Special Moments & Recognition -->
-  <section class="section" data-aos="fade-up">
+  <section id="special-moments" class="section" data-aos="fade-up">
     <h2>🌟 Special Moments & Recognition</h2>
     <p>Celebrating our achievements, recognition, and special moments that make our journey memorable.</p>
     <div class="media-grid">
 
       <div class="media-card featured-video" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" x5-video-player-type="h5" x5-video-player-fullscreen="true" data-special-moments="true">
           <source src="src/images/Gallery/Video/Opening Video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+          <p>Your browser does not support the video tag. <a href="src/images/Gallery/Video/Opening Video.mp4" target="_blank">Click here to download the video</a></p>
         </video>
         <div class="media-info">
-          <h3>🎬 O.T.R Club </h3>
-          <p>Our introduction of O.T.R Club to the world. A powerful presentation of our mission, vision, and the team behind the innovation.</p>
+          <h3>🎬 O.T.R Club Introduction</h3>
+          <p>Our mission, vision, and team presentation.</p>
         </div>
       </div>
 
       <div class="media-card featured-video" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" x5-video-player-type="h5" x5-video-player-fullscreen="true" data-special-moments="true">
           <source src="src/images/Gallery/Video/Recap Of last yesr.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
-          <h3>📹 Last Year's Journey Recap</h3>
-          <p>Relive the highlights of our previous year's journey - from initial planning to competition day. A comprehensive look at our growth and achievements.</p>
+          <h3>📹 Last Year's Journey</h3>
+          <p>Highlights from planning to competition day.</p>
         </div>
       </div>
 
       <div class="media-card featured-video" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" x5-video-player-type="h5" x5-video-player-fullscreen="true" data-special-moments="true">
           <source src="src/images/Gallery/Video/Last Year Music Video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
-          <h3>🎵 Last Year's Music Video</h3>
-          <p>Our official music video capturing the spirit, energy, and passion of Team Avinya. A creative celebration of our engineering journey and team camaraderie.</p>
+          <h3>🎵 Team Spirit Music Video</h3>
+          <p>Celebrating our engineering journey and camaraderie.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" x5-video-player-type="h5" x5-video-player-fullscreen="true" data-special-moments="true">
           <source src="src/images/Gallery/Video/Gained Recognition throughout the university.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🏆 University Recognition</h3>
-          <p>Our team gaining recognition throughout the university for our innovative work and achievements in engineering.</p>
+          <p>Team recognition for innovative engineering work.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" x5-video-player-type="h5" x5-video-player-fullscreen="true" data-special-moments="true">
           <source src="src/images/Gallery/Video/Aura Video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>✨ Team Spirit Video</h3>
-          <p>A special video capturing the unique aura and spirit of Team Avinya. Our passion and dedication shine through.</p>
+          <p>Capturing our passion and dedication.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" x5-video-player-type="h5" x5-video-player-fullscreen="true" data-special-moments="true">
           <source src="src/images/Gallery/Video/On the day of inaugration after puja buggy's first step.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🙏 First Step After Puja</h3>
-          <p>The sacred moment when our buggy takes its first step after the traditional puja ceremony. Tradition meets innovation.</p>
+          <p>Buggy's first movement after traditional ceremony.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true">
           <source src="src/images/Gallery/Video/Regression Testing.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
                   <h3>🔄 Egress Test</h3>
-        <p>Critical safety test where the driver must exit the vehicle within 5 seconds while removing all 5 seatbelts and grabbing a fire extinguisher. Our team completed this challenge successfully in a single attempt!</p>
+        <p>5-second evacuation test - completed successfully.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata">
+        <video controls preload="metadata" playsinline webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true">
           <source src="src/images/Gallery/Video/Buggy is getting new look and clothes.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
-          <h3>🎨 Vehicle Styling & Finishing</h3>
-          <p>Our buggy gets its final look and styling touches. Aesthetics meet functionality in perfect harmony.</p>
+          <h3>🎨 Vehicle Styling</h3>
+          <p>Final aesthetic touches and finishing.</p>
         </div>
       </div>
 
@@ -164,7 +266,7 @@
         </video>
         <div class="media-info">
           <h3>⏰ Overnight Work Timelapse</h3>
-          <p>A fascinating timelapse of our team working through the night to meet deadlines. Dedication and passion drive us to work tirelessly for excellence.</p>
+          <p>Team dedication through night shifts.</p>
         </div>
       </div>
 
@@ -175,7 +277,7 @@
         </video>
         <div class="media-info">
           <h3>📹 Workshop Timelapse</h3>
-          <p>Another exciting timelapse showing our workshop activities. Watch as our vehicle takes shape through continuous effort and innovation.</p>
+          <p>Vehicle assembly in fast-forward.</p>
         </div>
       </div>
       
@@ -183,146 +285,146 @@
   </section>
 
   <!-- Manufacturing & Assembly Process (Chronological Order) -->
-  <section class="section" data-aos="fade-up">
+  <section id="manufacturing" class="section" data-aos="fade-up">
     <h2>🔧 Manufacturing & Assembly Process</h2>
     <p>Step into our workshop and see how we transform raw materials into a high-performance racing vehicle through precision engineering.</p>
     <div class="media-grid">
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Grinding Mounts.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🔨 Grinding Mounts</h3>
-          <p>Precision grinding of mounts to ensure perfect fit and alignment. Every component is crafted with attention to detail.</p>
+          <p>Precision grinding for perfect fit and alignment.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team Working on Lathe Machine.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚙️ Lathe Machine Operations</h3>
-          <p>Our team working on the lathe machine to create precision components. Traditional machining meets modern engineering.</p>
+          <p>Creating precision components with traditional machining.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Grinding the rust off of the pipe.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🧽 Rust Removal Process</h3>
-          <p>Careful removal of rust from pipes to ensure structural integrity and longevity of our vehicle components.</p>
+          <p>Ensuring structural integrity and component longevity.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Installing tires, Rear hub, and suspension.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🔩 Tire, Hub & Suspension Installation</h3>
-          <p>Watch the precision installation of tires, rear hub, and suspension system. Each component is carefully fitted to ensure optimal performance and safety.</p>
+          <p>Precision installation for optimal performance.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team Installing front tire suspension and hub.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚙️ Front Suspension Assembly</h3>
-          <p>Our team works together to install the front tire suspension and hub system. Teamwork and precision engineering in action.</p>
+          <p>Teamwork and precision engineering in action.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Electrical Systems and Motor testing.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚡ Electrical Systems & Motor Testing</h3>
-          <p>Critical testing of our electrical systems and motor to ensure everything works perfectly. The heart of our electric vehicle comes to life.</p>
+          <p>Critical testing of electrical systems and motor.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Vehicle Testing & Performance -->
-  <section class="section" data-aos="fade-up">
+  <section id="testing" class="section" data-aos="fade-up">
     <h2>🧪 Vehicle Testing & Performance</h2>
     <p>Comprehensive testing procedures to ensure our vehicle meets all safety and performance standards.</p>
     <div class="media-grid">
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Suspension Testing.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🔄 Suspension System Testing</h3>
-          <p>Rigorous testing of our suspension system to ensure smooth handling and optimal performance on various terrains.</p>
+          <p>Rigorous testing for smooth handling on various terrains.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/speed Testing.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚡ Speed Testing</h3>
-          <p>Testing the speed capabilities of our vehicle to ensure it meets competition requirements and performance standards.</p>
+          <p>Testing speed capabilities for competition requirements.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Personally Testing the brakes before brake testing.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🛑 Pre-Brake Testing Check</h3>
-          <p>Our team personally tests the braking system before official brake testing. Safety is our top priority, and we ensure every component works perfectly.</p>
+          <p>Personal brake system testing before official evaluation.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team Getting ready for break test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🔧 Preparing for Brake Test</h3>
-          <p>Watch our team prepare the vehicle for the crucial brake test. Every detail is checked and double-checked to ensure optimal performance.</p>
+          <p>Final preparations for the crucial brake test.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Weight Test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚖️ Weight Capacity Testing</h3>
-          <p>Our vehicle undergoes rigorous weight testing to ensure it can safely carry the driver and withstand various load conditions during competition.</p>
+          <p>Rigorous weight testing for driver safety and load capacity.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team Doing weight Capacity Test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>👥 Team Weight Testing Session</h3>
-          <p>The entire team participates in weight capacity testing, demonstrating our vehicle's ability to handle different loads and ensuring safety standards are met.</p>
+          <p>Team participation in weight capacity testing.</p>
         </div>
       </div>
     </div>
@@ -334,37 +436,81 @@
     <p>Step into our workshop and see how we transform raw materials into a high-performance racing vehicle through precision engineering.</p>
     <div class="media-grid">
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted>
+        <video controls preload="metadata">
           <source src="src/images/Gallery/Video/Installing tires, Rear hub, and suspension.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🔩 Tire, Hub & Suspension Installation</h3>
-          <p>Watch the precision installation of tires, rear hub, and suspension system. Each component is carefully fitted to ensure optimal performance and safety.</p>
+          <p>Precision installation for optimal performance.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted>
+        <video controls preload="metadata">
           <source src="src/images/Gallery/Video/Team Installing front tire suspension and hub.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚙️ Front Suspension Assembly</h3>
-          <p>Our team works together to install the front tire suspension and hub system. Teamwork and precision engineering in action.</p>
+          <p>Teamwork and precision engineering in action.</p>
         </div>
       </div>
 
 
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted>
+        <video controls preload="metadata">
           <source src="src/images/Gallery/Video/Electrical Systems and Motor testing.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>⚡ Electrical Systems & Motor Testing</h3>
-          <p>Critical testing of our electrical systems and motor to ensure everything works perfectly. The heart of our electric vehicle comes to life.</p>
+          <p>Critical testing of electrical systems and motor.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata">
+          <source src="src/images/Gallery/Video/Fist test for motor after installing electrical system.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>⚡ First Motor Test</h3>
+          <p>Initial motor testing after electrical system installation.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata">
+          <source src="src/images/Gallery/Video/Grinding the rust off of the pipe.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🔨 Rust Removal Process</h3>
+          <p>Preparing pipes by removing rust for better quality.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata">
+          <source src="src/images/Gallery/Video/Grinding Mounts.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>⚙️ Mount Grinding Process</h3>
+          <p>Precision grinding of mounts for perfect fit.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata">
+          <source src="src/images/Gallery/Video/Team Working on Lathe Machine.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🔧 Lathe Machine Work</h3>
+          <p>Team members working on precision lathe operations.</p>
         </div>
       </div>
 
@@ -372,142 +518,142 @@
   </section>
 
   <!-- Technical Inspection & Testing -->
-  <section class="section" data-aos="fade-up">
+  <section id="inspection" class="section" data-aos="fade-up">
     <h2>🔍 Technical Inspection & Testing</h2>
     <p>Our vehicle undergoes rigorous technical inspections and testing to meet competition standards and ensure safety.</p>
     <div class="media-grid">
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Electrical, braking and steering checking day before the inaugration.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🔧 Pre-Inauguration Systems Check</h3>
-          <p>Final comprehensive check of electrical, braking, and steering systems the day before inauguration. Every detail matters for success.</p>
+          <p>Final check of electrical, braking, and steering systems.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team got proof of clearing electrical Technical Inspection.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>✅ Electrical Technical Inspection Passed</h3>
-          <p>Celebration moment as our team receives proof of clearing the electrical technical inspection. A major milestone in our competition journey.</p>
+          <p>Proof of clearing electrical technical inspection.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Buggy going Through Rainstorm Test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🌧️ Rainstorm Test Challenge</h3>
-          <p>Watch our buggy bravely face the rainstorm test! This critical test ensures our vehicle can withstand extreme weather conditions and maintain performance under pressure.</p>
+          <p>Buggy facing extreme weather conditions test.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/proof of passing the rainstorm test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🌧️ Rainstorm Test Success</h3>
-          <p>Proof of our vehicle successfully passing the challenging rainstorm test. Our engineering excellence withstands nature's toughest conditions.</p>
+          <p>Successfully passing the challenging rainstorm test.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team Returning After Successfully completing Rainstorm Test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🏆 Victorious Return from Rainstorm Test</h3>
-          <p>The triumphant return of our team after successfully completing the rainstorm test. Pride and accomplishment written on every face.</p>
+          <p>Triumphant return after completing rainstorm test.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team Entering the test site.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🚪 Entering the Test Site</h3>
-          <p>Our team enters the official test site with confidence and determination. Ready to prove our vehicle's capabilities.</p>
+          <p>Team enters official test site with confidence.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Inauguration & Launch -->
-  <section class="section" data-aos="fade-up">
+  <section id="inauguration" class="section" data-aos="fade-up">
     <h2>🚗 Inauguration & Launch</h2>
     <p>The grand moments when our vehicle was officially inaugurated and launched, marking the culmination of months of hard work.</p>
     <div class="media-grid">
       <div class="media-card featured-video" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Inaugration First look revealing Video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🚗 Inauguration First Look - Vehicle Reveal</h3>
-          <p>The grand moment when our buggy was first revealed to the university! Watch the excitement as our vehicle makes its debut appearance, showcasing months of hard work and dedication.</p>
+          <p>Grand moment of buggy reveal to the university.</p>
         </div>
       </div>
 
       <div class="media-card featured-video" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/After inaugration Vehicle taking off with a bang.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🏁 Vehicle Launch - Taking Off with a Bang!</h3>
-          <p>Experience the thrill as our vehicle takes its first official ride after inauguration! The moment when all our engineering efforts came to life with power and precision.</p>
+          <p>First official ride after inauguration with power and precision.</p>
         </div>
       </div>
 
       <div class="media-card featured-video" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Dr. Sunil Ingole Sir taking feel of the vehicle for the first time on the day of inaugration.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>👨‍🏫 Dr. Sunil Ingole Sir's (Dean ADYPU) First Experience</h3>
-          <p>A special moment as Dr. Sunil Ingole Sir takes the first feel of our vehicle on inauguration day. His guidance and support have been instrumental in our journey.</p>
+          <p>Dean's first experience with our vehicle on inauguration day.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Competition & Final Testing -->
-  <section class="section" data-aos="fade-up">
+  <section id="competition" class="section" data-aos="fade-up">
     <h2>🏁 Competition & Final Testing</h2>
     <p>The final stages of preparation and competition moments that showcase our vehicle's performance and reliability.</p>
     <div class="media-grid">
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Team ready to Tackle first day of Competition.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🏆 Ready for Competition Day</h3>
-          <p>The team's excitement and preparation for the first day of competition. Months of hard work culminate in this moment of truth.</p>
+          <p>Team preparation for the first day of competition.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <video controls preload="metadata" muted disablePictureInPicture>
+        <video controls preload="metadata" disablePictureInPicture>
           <source src="src/images/Gallery/Video/Going For a ride.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="media-info">
           <h3>🏎️ Test Ride Experience</h3>
-          <p>Enjoying a test ride in our completed vehicle. The joy of seeing our engineering dreams come to life.</p>
+          <p>Enjoying a test ride in our completed vehicle.</p>
         </div>
       </div>
     </div>
@@ -515,188 +661,1032 @@
 
 
 
-  <!-- Photo Gallery -->
+  <!-- Additional Videos -->
   <section class="section" data-aos="fade-up">
+    <h2>🎬 Additional Videos</h2>
+    <p>More behind-the-scenes moments and special highlights from our journey.</p>
+    <div class="media-grid">
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/Buggy is getting new look and clothes.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🎨 Buggy Styling & Bodywork</h3>
+          <p>Applying final styling and bodywork to the buggy.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/On the day of inaugration after puja buggy's first step.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🙏 Post-Puja First Movement</h3>
+          <p>Buggy's first movement after traditional puja ceremony.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/Gained Recognition throughout the university.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🏆 University Recognition</h3>
+          <p>Team gaining recognition and support throughout the university.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/speed Testing.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🏃 Speed Testing</h3>
+          <p>Performance speed testing of the electric ATV.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/Suspension Testing.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🔄 Suspension System Testing</h3>
+          <p>Testing suspension system performance and reliability.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/Regression Testing.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🔄 Regression Testing</h3>
+          <p>Comprehensive regression testing procedures.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/eBAJA Official page reel.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🏆 eBAJA Official Reel</h3>
+          <p>Official eBAJA competition promotional reel.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/Recap Of last yesr.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>📅 Last Year Recap</h3>
+          <p>Recap of team's achievements from the previous year.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Video/Last Year Music Video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🎵 Last Year Music Video</h3>
+          <p>Musical compilation of last year's journey.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <video controls preload="metadata" disablePictureInPicture>
+          <source src="src/images/Gallery/Images/Team and buggy entering the pit.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-info">
+          <h3>🏁 Team and Buggy Entering the Pit</h3>
+          <p>Team and buggy entering the pit area during competition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section id="photos" class="section" data-aos="fade-up">
     <h2>📸 Photo Gallery</h2>
     <p>Explore our journey through stunning photographs that capture every moment of our engineering adventure.</p>
     <div class="media-grid">
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Photo taken on the day of the inaugration.jpg" alt="Vehicle Inauguration" />
+        <img src="src/images/Gallery/Images/Photo taken on the day of the inaugration.jpg" 
+             alt="Team Avinya electric ATV vehicle inauguration ceremony at ADYPU" 
+             loading="lazy" 
+             decoding="async"
+             onload="this.classList.add('loaded')"
+             onerror="this.classList.add('error')" />
         <div class="media-info">
           <h3>🚗 Grand Vehicle Inauguration</h3>
-          <p>The momentous occasion when our vehicle was officially inaugurated and revealed to the university community. A proud moment for the entire team.</p>
+          <p>Official vehicle inauguration and reveal to university community.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Photo taken on the day of the inaugration with Vice chancellor, Dean and faculty adviser.jpg" alt="Leadership Team" />
+        <img src="src/images/Gallery/Images/Photo taken on the day of the inaugration with Vice chancellor, Dean and faculty adviser.jpg" alt="Team Avinya with ADYPU Vice Chancellor, Dean and faculty advisor during vehicle inauguration" />
         <div class="media-info">
           <h3>👥 Leadership Team Support</h3>
-          <p>Our team with the Vice Chancellor, Dean, and faculty adviser on inauguration day. Their guidance and support have been invaluable to our success.</p>
+          <p>Team with Vice Chancellor, Dean, and faculty adviser on inauguration day.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Buggy ready for Inaugration.jpg" alt="Buggy Ready" />
+        <img src="src/images/Gallery/Images/Buggy ready for Inaugration.jpg" alt="Team Avinya electric ATV buggy ready for inauguration ceremony" />
         <div class="media-info">
           <h3>✨ Buggy Ready for Inauguration</h3>
-          <p>Our perfectly prepared buggy, polished and ready for its grand inauguration ceremony. Every detail has been carefully attended to.</p>
+          <p>Perfectly prepared buggy for grand inauguration ceremony.</p>
         </div>
       </div>
 
-      <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Photo Taken On the day of the inaugration.jpg" alt="Inauguration Day" />
-        <div class="media-info">
-          <h3>📸 Inauguration Day Memories</h3>
-          <p>Capturing the excitement and joy of inauguration day. A day filled with pride, accomplishment, and celebration of our engineering excellence.</p>
-        </div>
-      </div>
+
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Enjoying the vehicle Ride.jpg" alt="Test Ride" />
+        <img src="src/images/Gallery/Images/Enjoying the vehicle Ride.jpg" alt="Team Avinya members enjoying test ride of electric ATV buggy" />
         <div class="media-info">
           <h3>😊 Enjoying the Test Ride</h3>
-          <p>The pure joy and satisfaction of experiencing our vehicle in action. A moment of pride for every team member who contributed to this success.</p>
+          <p>Joy and satisfaction of experiencing our vehicle in action.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Vehicle in process of Making.jpg" alt="Vehicle Assembly" />
+        <img src="src/images/Gallery/Images/Vehicle in process of Making.jpg" alt="Team Avinya electric ATV vehicle assembly process in workshop" />
         <div class="media-info">
           <h3>🔧 Vehicle Assembly in Progress</h3>
-          <p>Our vehicle taking shape during the assembly process. Every component carefully fitted and tested to ensure perfection.</p>
+          <p>Vehicle taking shape during assembly process.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Buggy before putting on side and internal panels.jpg" alt="Pre-Panel Assembly" />
+        <img src="src/images/Gallery/Images/Buggy before putting on side and internal panels.jpg" alt="Team Avinya electric ATV buggy before side and internal panel installation" />
         <div class="media-info">
           <h3>🔩 Pre-Panel Assembly Stage</h3>
-          <p>Our buggy before the side and internal panels are installed. A rare glimpse into the internal structure and engineering complexity.</p>
+          <p>Buggy before side and internal panels installation.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Buggy installed With Electrical traction systems and lights.jpg" alt="Electrical Systems" />
+        <img src="src/images/Gallery/Images/Buggy installed With Electrical traction systems and lights.jpg" alt="Team Avinya electric ATV with installed electrical traction systems and lighting" />
         <div class="media-info">
           <h3>⚡ Electrical Systems Installation</h3>
-          <p>Our buggy with complete electrical traction systems and lighting installed. The heart of our electric vehicle comes to life.</p>
+          <p>Complete electrical traction systems and lighting installed.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Vehicle Securely kept in the Workshop.jpg" alt="Workshop Storage" />
+        <img src="src/images/Gallery/Images/Vehicle Securely kept in the Workshop.jpg" alt="Team Avinya electric ATV securely stored in ADYPU workshop" />
         <div class="media-info">
           <h3>🏭 Secure Workshop Storage</h3>
-          <p>Our vehicle securely stored in the workshop when not in use. Safety and protection are always our top priorities.</p>
+          <p>Vehicle securely stored in workshop when not in use.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Selected Members of team going through the Electrical Technical Inspection.jpg" alt="Technical Inspection" />
+        <img src="src/images/Gallery/Images/Selected Members of team going through the Electrical Technical Inspection.jpg" alt="Team Avinya members undergoing electrical technical inspection at SAEINDIA eBAJA competition" />
         <div class="media-info">
           <h3>🔍 Electrical Technical Inspection</h3>
-          <p>Selected team members undergoing the rigorous electrical technical inspection. Every system is thoroughly checked for compliance.</p>
+          <p>Team members undergoing rigorous electrical inspection.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/After Phase 1 Presentation was done Succesfully.jpg" alt="Phase 1 Success" />
+        <img src="src/images/Gallery/Images/After Phase 1 Presentation was done Succesfully.jpg" alt="Team Avinya celebrating successful completion of Phase 1 presentation at SAEINDIA eBAJA" />
         <div class="media-info">
           <h3>✅ Phase 1 Presentation Success</h3>
-          <p>Celebration after successfully completing Phase 1 presentation. A major milestone achieved through teamwork and dedication.</p>
+          <p>Celebration after successfully completing Phase 1 presentation.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Phase 1 Presentation.jpg" alt="Phase 1 Presentation" />
+        <img src="src/images/Gallery/Images/Phase 1 Presentation.jpg" alt="Team Avinya presenting Phase 1 technical documentation at SAEINDIA eBAJA competition" />
         <div class="media-info">
           <h3>📊 Phase 1 Presentation</h3>
-          <p>Our team delivering the Phase 1 presentation with confidence and professionalism. Showcasing our technical expertise and project planning.</p>
+          <p>Team delivering Phase 1 presentation with confidence.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Going for Regression Testing.jpg" alt="Egress Test" />
+        <img src="src/images/Gallery/Images/Going for Regression Testing.jpg" alt="Team Avinya electric ATV undergoing regression testing at SAEINDIA eBAJA competition" />
         <div class="media-info">
                   <h3>🔄 Heading for Egress Test</h3>
-        <p>Our team preparing for the critical egress test - a 5-second evacuation challenge requiring seatbelt removal and fire extinguisher retrieval. We completed this successfully in one attempt!</p>
+        <p>Team preparing for 5-second evacuation challenge.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Proof of clearing technical inspection.jpg" alt="Technical Inspection Pass" />
+        <img src="src/images/Gallery/Images/Proof of clearing technical inspection.jpg" alt="Team Avinya proof of successfully clearing technical inspection at SAEINDIA eBAJA" />
         <div class="media-info">
           <h3>🏆 Technical Inspection Cleared</h3>
-          <p>Proof of successfully clearing the technical inspection. A testament to our engineering excellence and attention to detail.</p>
+          <p>Proof of successfully clearing technical inspection.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Entry Gate of the Competition.jpg" alt="Competition Entry" />
+        <img src="src/images/Gallery/Images/Entry Gate of the Competition.jpg" alt="Team Avinya entering SAEINDIA eBAJA competition venue with electric ATV" />
         <div class="media-info">
           <h3>🚪 Competition Entry Gate</h3>
-          <p>The entry gate of the competition venue. The moment when we officially enter the arena to compete with the best teams.</p>
+          <p>Entry gate of the competition venue.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Photo taken on the centre before taking the return train to hyderabad to Pune.jpg" alt="Return Journey" />
+        <img src="src/images/Gallery/Images/Photo taken on the centre before taking the return train to hyderabad to Pune.jpg" alt="Team Avinya team photo at competition center before returning to Pune from Hyderabad" />
         <div class="media-info">
           <h3>🚂 Return Journey Preparation</h3>
-          <p>Team photo at the center before taking the return train from Hyderabad to Pune. Memories of our competition journey.</p>
+          <p>Team photo before return train from Hyderabad to Pune.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/After Entire Event ended team took a memorative photo.jpg" alt="Memorable Team Photo" />
+        <img src="src/images/Gallery/Images/After Entire Event ended team took a memorative photo.jpg" alt="Team Avinya memorable team photo after successful completion of SAEINDIA eBAJA competition" />
         <div class="media-info">
           <h3>📸 Memorable Team Photo</h3>
-          <p>A commemorative photo taken after the entire event ended. Capturing the bonds, memories, and achievements of our incredible journey.</p>
+          <p>Commemorative photo after entire event ended.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Showing and explaining the features of vehicle to the foreign delegates 1.jpg" alt="Foreign Delegates 1" />
+        <img src="src/images/Gallery/Images/Showing and explaining the features of vehicle to the foreign delegates 1.jpg" alt="Team Avinya explaining electric ATV features to foreign delegates at SAEINDIA eBAJA competition" />
         <div class="media-info">
           <h3>🌍 International Showcase - Part 1</h3>
-          <p>Our team proudly showcasing and explaining the features of our vehicle to foreign delegates. Representing Indian engineering excellence.</p>
+          <p>Showcasing vehicle features to foreign delegates.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Showing and explaining the features of vehicle to the foreign delegates 2.jpg" alt="Foreign Delegates 2" />
+        <img src="src/images/Gallery/Images/Showing and explaining the features of vehicle to the foreign delegates 2.jpg" alt="Team Avinya demonstrating electric ATV technical specifications to international delegates" />
         <div class="media-info">
           <h3>🌍 International Showcase - Part 2</h3>
-          <p>Continuing our presentation to foreign delegates, demonstrating the technical sophistication and innovation of our vehicle design.</p>
+          <p>Continuing presentation to foreign delegates.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Weight test.png" alt="Weight Testing" />
+        <img src="src/images/Gallery/Images/Weight test.png" alt="Team Avinya electric ATV undergoing weight capacity testing at SAEINDIA eBAJA competition" />
         <div class="media-info">
           <h3>⚖️ Weight Testing Documentation</h3>
-          <p>Documentation of our weight testing procedures. Ensuring our vehicle meets all safety and performance standards.</p>
+          <p>Documentation of weight testing procedures.</p>
         </div>
       </div>
 
       <div class="media-card" data-aos="zoom-in">
-        <img src="src/images/Gallery/Images/Rainstorm Test.png" alt="Rainstorm Testing" />
+        <img src="src/images/Gallery/Images/Rainstorm Test.png" alt="Team Avinya electric ATV successfully completing rainstorm testing at SAEINDIA eBAJA competition" />
         <div class="media-info">
           <h3>🌧️ Rainstorm Test Documentation</h3>
-          <p>Documentation of our rainstorm testing procedures. Proving our vehicle's ability to withstand extreme weather conditions.</p>
+          <p>Documentation of rainstorm testing procedures.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Two of our members recieved sponsorship.jpg" alt="Team Avinya members receiving sponsorship support for the project" />
+        <div class="media-info">
+          <h3>💰 Sponsorship Achievement</h3>
+          <p>Two team members receiving sponsorship support for the project.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Team photos of inaugration day.jpg" alt="Team Avinya group photos from inauguration day celebration" />
+        <div class="media-info">
+          <h3>📸 Inauguration Day Team Photos</h3>
+          <p>Memorable team photos from the grand inauguration day.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Honourable Sir driving our buggy on inaugration day.HEIC" alt="Honorable faculty member driving Team Avinya buggy on inauguration day" />
+        <div class="media-info">
+          <h3>👨‍🏫 Faculty Test Drive</h3>
+          <p>Honorable faculty member experiencing our buggy on inauguration day.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Meet The team.HEIC" alt="Team Avinya team introduction and group photo" />
+        <div class="media-info">
+          <h3>👥 Meet The Team</h3>
+          <p>Official team introduction and group photo.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Team Ready to departure.heic" alt="Team Avinya ready for departure to competition venue" />
+        <div class="media-info">
+          <h3>🚀 Ready for Departure</h3>
+          <p>Team prepared and ready for departure to competition venue.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Technical inspection site.heic" alt="Team Avinya at technical inspection site during competition" />
+        <div class="media-info">
+          <h3>🔍 Technical Inspection Site</h3>
+          <p>Team at the official technical inspection site during competition.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Team in the pit discussing next move.heic" alt="Team Avinya in pit area discussing strategy and next moves" />
+        <div class="media-info">
+          <h3>🤝 Pit Strategy Discussion</h3>
+          <p>Team in pit area discussing strategy and next moves.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Team Briefing day before competition.heic" alt="Team Avinya briefing session day before competition" />
+        <div class="media-info">
+          <h3>📋 Pre-Competition Briefing</h3>
+          <p>Team briefing session the day before competition.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Buggy Chasis.heic" alt="Team Avinya electric ATV buggy chassis structure" />
+        <div class="media-info">
+          <h3>🔩 Buggy Chassis</h3>
+          <p>Detailed view of the buggy chassis structure.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Buggy Ready!.heic" alt="Team Avinya electric ATV buggy ready for action" />
+        <div class="media-info">
+          <h3>✅ Buggy Ready!</h3>
+          <p>Buggy fully prepared and ready for action.</p>
+        </div>
+      </div>
+
+      <div class="media-card" data-aos="zoom-in">
+        <img src="src/images/Gallery/Images/Buggy going for inaugration.jpg" alt="Team Avinya buggy being prepared for inauguration ceremony" />
+        <div class="media-info">
+          <h3>🚗 Buggy Going for Inauguration</h3>
+          <p>Buggy being prepared and moved for inauguration ceremony.</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p><a href="privacy.html">Privacy Policy</a></p>
-    <p>&copy; 2025 Team Avinya | Open Throttle Racing Club</p>
+    <div class="footer-content">
+      <p><a href="#" class="footer-link">Privacy Policy</a> | &copy; 2025 Team Avinya — All Rights Reserved</p>
+    </div>
+              <p>Designed & Developed with ❤️ by <a href="about.html#creator" class="footer-link">Rushikesh Pattiwar</a></p>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-button" aria-label="Back to top" title="Back to top">
+    <svg class="back-to-top-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="currentColor"/>
+    </svg>
+  </button>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="src/js/script.js"></script>
+  <script src="src/js/sidebar.js" defer></script>
+  
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="cookie-popup">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <span class="cookie-icon">🍪</span>
+        <p>We use cookies to enhance your experience and analyze site traffic.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="accept-all" class="btn btn-primary">Accept All</button>
+        <button id="reject-all" class="btn btn-secondary">Reject All</button>
+        <button id="cookie-settings" class="btn btn-link">Cookie Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div id="cookie-modal" class="cookie-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🍪 Cookie Preferences</h3>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="essential" checked disabled>
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Essential</strong>
+              <span>Required for the website to function properly</span>
+            </div>
+          </label>
+        </div>
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="analytics" checked>
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Analytics</strong>
+              <span>Help us understand how visitors interact with our website</span>
+            </div>
+          </label>
+        </div>
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="marketing">
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Marketing</strong>
+              <span>Used to deliver personalized advertisements</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="save-preferences" class="btn btn-primary">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Cookie Popup Styles */
+    .cookie-popup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 16px 20px;
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dark mask overlay when cookie popup is visible */
+    .cookie-popup::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cookie-popup.show::before {
+      opacity: 1;
+    }
+
+    .cookie-popup.show {
+      transform: translateY(0);
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Desktop-specific positioning to avoid back-to-top button */
+    @media (min-width: 769px) {
+      .cookie-content {
+        margin: 0 20px 0 20px;
+        justify-content: flex-start;
+        gap: 30px;
+      }
+      
+      .cookie-text {
+        flex: 0 1 auto;
+        max-width: 600px;
+      }
+      
+      .cookie-buttons {
+        flex-shrink: 0;
+      }
+    }
+
+    .cookie-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .cookie-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .cookie-text p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: #ff3c38;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #e63531;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-link {
+      background: transparent;
+      color: #ff3c38;
+      padding: 8px 0;
+    }
+
+    .btn-link:hover {
+      color: #ff6b6b;
+      text-decoration: underline;
+      background: rgba(255, 60, 56, 0.1);
+      border-radius: 4px;
+      padding: 8px 8px;
+    }
+
+    /* Modal Styles */
+    .cookie-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(15px);
+      border-radius: 12px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 0;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: #ff3c38;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #999;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .modal-body {
+      padding: 20px 24px;
+    }
+
+    .cookie-category {
+      margin-bottom: 16px;
+    }
+
+    .cookie-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .cookie-toggle {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .cookie-toggle:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .toggle-slider {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    input[type="checkbox"]:checked + .toggle-slider {
+      background: #ff3c38;
+    }
+
+    input[type="checkbox"]:checked + .toggle-slider::before {
+      transform: translateX(20px);
+    }
+
+    input[type="checkbox"]:disabled + .toggle-slider {
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0.6;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .toggle-content {
+      flex: 1;
+    }
+
+    .toggle-content strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .toggle-content span {
+      font-size: 12px;
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+
+    .modal-footer {
+      padding: 0 24px 24px;
+      text-align: right;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .cookie-text {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .cookie-buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .modal-content {
+        margin: 20px;
+        max-width: none;
+      }
+
+      .modal-header,
+      .modal-body,
+      .modal-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cookie-popup {
+        padding: 12px 16px;
+      }
+
+      .cookie-text p {
+        font-size: 13px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <script>
+    // Cookie Consent Functionality
+    class CookieConsent {
+      constructor() {
+        this.popup = document.getElementById('cookie-popup');
+        this.modal = document.getElementById('cookie-modal');
+        this.init();
+      }
+
+      init() {
+        // Check if user has already made a choice
+        if (localStorage.getItem('cookieConsent')) {
+          return;
+        }
+
+        // Show popup with animation
+        setTimeout(() => {
+          this.popup.classList.add('show');
+        }, 1000);
+
+        this.bindEvents();
+      }
+
+      bindEvents() {
+        // Accept all cookies
+        document.getElementById('accept-all').addEventListener('click', () => {
+          this.savePreferences({
+            essential: true,
+            analytics: true,
+            marketing: true
+          });
+          this.hidePopup();
+        });
+
+        // Reject all cookies
+        document.getElementById('reject-all').addEventListener('click', () => {
+          this.savePreferences({
+            essential: true,
+            analytics: false,
+            marketing: false
+          });
+          this.hidePopup();
+        });
+
+        // Open settings modal
+        document.getElementById('cookie-settings').addEventListener('click', () => {
+          this.showModal();
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', () => {
+          this.hideModal();
+        });
+
+        // Save preferences
+        document.getElementById('save-preferences').addEventListener('click', () => {
+          const preferences = {
+            essential: true, // Always required
+            analytics: document.getElementById('analytics').checked,
+            marketing: document.getElementById('marketing').checked
+          };
+          this.savePreferences(preferences);
+          this.hideModal();
+          this.hidePopup();
+        });
+
+        // Close modal when clicking outside
+        this.modal.addEventListener('click', (e) => {
+          if (e.target === this.modal) {
+            this.hideModal();
+          }
+        });
+      }
+
+      showModal() {
+        this.modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      hideModal() {
+        this.modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      hidePopup() {
+        this.popup.classList.remove('show');
+        setTimeout(() => {
+          this.popup.style.display = 'none';
+        }, 400);
+      }
+
+      savePreferences(preferences) {
+        localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+        localStorage.setItem('cookiesAccepted', 'custom');
+        localStorage.setItem('analyticsCookies', preferences.analytics.toString());
+        localStorage.setItem('marketingCookies', preferences.marketing.toString());
+        localStorage.setItem('essentialCookies', 'true');
+      }
+    }
+
+    // Initialize cookie consent when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new CookieConsent();
+    });
+  </script>
+  
+  <!-- Gallery Performance Optimization Script -->
+  <script>
+    // Gallery Performance Optimization
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // Add lazy loading and optimization to all images
+      const images = document.querySelectorAll('.media-card img');
+      images.forEach(img => {
+        if (!img.hasAttribute('loading')) {
+          img.setAttribute('loading', 'lazy');
+        }
+        if (!img.hasAttribute('decoding')) {
+          img.setAttribute('decoding', 'async');
+        }
+        
+        // Add loading state
+        img.classList.add('gallery-image');
+        
+        // Add error handling
+        img.addEventListener('error', function() {
+          this.classList.add('error');
+          this.style.display = 'none';
+        });
+        
+        // Add load success
+        img.addEventListener('load', function() {
+          this.classList.add('loaded');
+        });
+      });
+      
+      // Optimize videos
+      const videos = document.querySelectorAll('.media-card video');
+      videos.forEach(video => {
+        // Set video attributes for better performance
+        video.setAttribute('preload', 'metadata');
+        video.setAttribute('disablePictureInPicture', '');
+        video.setAttribute('controlsList', 'nodownload');
+        
+        // Add loading state
+        video.classList.add('gallery-video');
+        
+        // Pause videos when not in viewport
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && !video.paused) {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        observer.observe(video);
+      });
+      
+      // Progressive loading with Intersection Observer
+      const mediaCards = document.querySelectorAll('.media-card');
+      const mediaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            // Load media content when card becomes visible
+            const img = entry.target.querySelector('img');
+            const video = entry.target.querySelector('video');
+            
+            if (img && !img.classList.contains('loaded')) {
+              img.style.opacity = '0';
+              img.style.transition = 'opacity 0.3s ease';
+              
+              img.addEventListener('load', function() {
+                this.style.opacity = '1';
+              });
+            }
+            
+            if (video) {
+              video.classList.add('ready-to-play');
+            }
+          }
+        });
+      }, { 
+        threshold: 0.1,
+        rootMargin: '50px'
+      });
+      
+      mediaCards.forEach(card => {
+        mediaObserver.observe(card);
+      });
+      
+      // Add loading indicator
+      const loadingIndicator = document.createElement('div');
+      loadingIndicator.className = 'gallery-loading';
+      loadingIndicator.innerHTML = `
+        <div class="loading-spinner"></div>
+        <p>Loading gallery content...</p>
+      `;
+      
+      // Show loading indicator initially
+      const mediaGrid = document.querySelector('.media-grid');
+      if (mediaGrid) {
+        mediaGrid.insertBefore(loadingIndicator, mediaGrid.firstChild);
+        
+        // Hide loading indicator after all content is loaded
+        setTimeout(() => {
+          loadingIndicator.style.display = 'none';
+        }, 2000);
+      }
+    });
+  </script>
 </body>
 </html> 
 

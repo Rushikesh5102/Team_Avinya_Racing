@@ -1,23 +1,10 @@
-/**
- * Team Avinya Website - Main JavaScript File
- * Comprehensive functionality including animations, forms, cursor trail, and more
- */
-
-// ============================================================================
-// CONFIGURATION
-// ============================================================================
-
+/* Team Avinya Website - Optimized JavaScript */
 const CONFIG = {
-    // Form Configuration
     scriptURL: 'https://script.google.com/macros/s/AKfycbye0m-3szwSl82lU3UCdHGGu-aHw6MtSpCu9IUPKOAdlBPXMVW2AUJ3h-R2ZvfymbPyww/exec',
-    
-    // Cursor Trail Configuration
     cursorTrailEnabled: true,
     maxTrailLength: 12,
     trailInterval: 8,
     trailFadeTime: 400,
-    
-    // Animation Configuration
     aosDuration: 800,
     aosEasing: 'ease-in-out',
     aosOnce: true,
@@ -25,10 +12,41 @@ const CONFIG = {
     aosDelay: 100
 };
 
-// ============================================================================
-// INITIALIZATION
-// ============================================================================
+/* Navbar Scroll Effects */
+function initializeNavbarScrollEffect() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
 
+/* Headline Animation */
+function animateHeadline() {
+    const headlines = document.querySelectorAll('.headline-line');
+    if (headlines.length === 0) return;
+    
+    headlines.forEach((line, index) => {
+        setTimeout(() => {
+            line.classList.add('animate-in');
+            line.querySelectorAll('.highlight-word').forEach((highlight, highlightIndex) => {
+                setTimeout(() => highlight.classList.add('animate-in'), 300 + (highlightIndex * 200));
+            });
+        }, index * 800);
+    });
+}
+
+
+
+/* Initialization */
 document.addEventListener('DOMContentLoaded', function() {
     initializeAOS();
     initializeFormHandlers();
@@ -39,6 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeLoadingAnimation();
     initializeBackToTop();
     initializeCreatorSection();
+    initializeNavbarScrollEffect();
+    
+    // Start headline animation after a brief delay
+    setTimeout(animateHeadline, 500);
 });
 
 // ============================================================================
@@ -413,33 +435,134 @@ function initializeGalleryModals() {
 function initializeGalleryVideoControls() {
     const videos = document.querySelectorAll('video');
     
-    videos.forEach(video => {
+    videos.forEach((video) => {
         // Check if video is in Special Moments section
-        const isInSpecialMoments = video.closest('.section')?.querySelector('h2')?.textContent.includes('Special Moments');
+        const isSpecialMoments = video.closest('#special-moments') !== null;
         
-        if (!isInSpecialMoments) {
-            // For non-Special Moments videos, prevent unmuting
+        // Set initial volume and mute settings
+        video.addEventListener('loadedmetadata', function() {
+            if (isSpecialMoments) {
+                // Special Moments videos: 50% volume, not muted
+                if (this.volume === 0) {
+                    this.volume = 0.5;
+                }
+                this.muted = false;
+            } else {
+                // All other videos: muted by default
+                this.muted = true;
+                this.volume = 0;
+            }
+        });
+        
+        // Handle play event - show all controls
+        video.addEventListener('play', function() {
+            this.classList.add('playing');
+            this.closest('.media-card').classList.add('playing');
+        });
+        
+        // Handle pause event - hide controls, show play button
+        video.addEventListener('pause', function() {
+            this.classList.remove('playing');
+            this.closest('.media-card').classList.remove('playing');
+        });
+        
+        // Handle ended event - hide controls, show play button
+        video.addEventListener('ended', function() {
+            this.classList.remove('playing');
+            this.closest('.media-card').classList.remove('playing');
+        });
+        
+        // Add click handler for custom play button
+        const mediaCard = video.closest('.media-card');
+        mediaCard.addEventListener('click', function(e) {
+            // Only trigger if clicking on the card itself (not on video controls)
+            if (e.target === this || e.target.classList.contains('media-card')) {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+        });
+        
+        // Prevent unmuting for non-Special Moments videos
+        if (!isSpecialMoments) {
             video.addEventListener('volumechange', function() {
-                if (this.volume > 0) {
-                    this.volume = 0;
+                if (!this.muted) {
                     this.muted = true;
                 }
             });
             
-            // Ensure video stays muted on play
-            video.addEventListener('play', function() {
+            // Prevent unmuting via controls
+            video.addEventListener('loadedmetadata', function() {
                 this.muted = true;
-                this.volume = 0;
-            });
-            
-            // Prevent unmuting through right-click context menu
-            video.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-                return false;
             });
         }
+        
+        // Handle video errors silently
+        video.addEventListener('error', function(e) {
+            console.error('Video error for', this.src, ':', e);
+        });
+    });
+    
+    // Initialize fullscreen support
+    initializeFullscreenSupport();
+}
+
+
+
+// Fullscreen functionality
+function initializeFullscreenSupport() {
+    const videos = document.querySelectorAll('video');
+    
+    videos.forEach(video => {
+        // Add double-click event for fullscreen
+        video.addEventListener('dblclick', function() {
+            toggleFullscreen(this);
+        });
+        
+        // Add keyboard support for fullscreen
+        video.addEventListener('keydown', function(e) {
+            if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen(this);
+            }
+        });
+        
+
     });
 }
+
+// Toggle fullscreen function
+function toggleFullscreen(element) {
+    if (!document.fullscreenElement && 
+        !document.webkitFullscreenElement && 
+        !document.mozFullScreenElement) {
+        // Enter fullscreen
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
+
+
 
 function createModal(img) {
     const modal = document.createElement('div');
@@ -518,22 +641,172 @@ function initializeLoadingAnimation() {
 // ============================================================================
 
 function initializeBackToTop() {
-const backToTop = document.createElement('button');
-backToTop.className = 'back-to-top';
-backToTop.setAttribute('aria-label', 'Scroll to top');
-backToTop.innerHTML = '↑';
-document.body.appendChild(backToTop);
+    (function forceFixBackToTop(){
+        const ID = 'back-to-top-btn';
+        const btn = document.getElementById(ID);
+        if(!btn){ console.warn('[rushi] No #' + ID + ' found'); return; }
+        console.group('[rushi] forceFixBackToTop');
 
-window.addEventListener('scroll', () => {
-  backToTop.classList.toggle('visible', window.scrollY > 300);
-});
+        // 1) Move to body (try)
+        try {
+            document.body.appendChild(btn);
+            console.log('Moved button to document.body');
+        } catch (e) {
+            console.warn('Could not append to body:', e);
+        }
 
-backToTop.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
+        // 2) small helper to detect problematic styles
+        function isProblem(el){
+            if(!el || el.nodeType !== 1) return false;
+            const cs = getComputedStyle(el);
+            return (cs.transform && cs.transform !== 'none') ||
+                   (cs.filter && cs.filter !== 'none') ||
+                   (cs.perspective && cs.perspective !== 'none') ||
+                   (cs.willChange && cs.willChange !== 'auto') ||
+                   (/hidden|clip/.test(cs.overflow));
+        }
+
+        // 3) gather problematic ancestors (from body up)
+        let problems = [];
+        let cursor = btn.parentElement;
+        while(cursor){
+            if(isProblem(cursor)) problems.push(cursor);
+            cursor = cursor.parentElement;
+        }
+        if(problems.length) {
+            console.warn('[rushi] Found problematic ancestors:', problems);
+        } else {
+            console.log('[rushi] No problematic ancestors found');
+        }
+
+        // 4) create top-level portal if not exists
+        let portal = document.getElementById('rushi-backtop-portal');
+        if(!portal){
+            portal = document.createElement('div');
+            portal.id = 'rushi-backtop-portal';
+            // minimal inline safe styles
+            Object.assign(portal.style, {
+                position: 'fixed',
+                bottom: '30px',
+                right: '30px',
+                zIndex: '2147483647',
+                pointerEvents: 'none',
+                display: 'block'
+            });
+            document.documentElement.appendChild(portal);
+            console.log('Portal created and appended to document.documentElement');
+        } else {
+            // ensure it's top-level
+            try { document.documentElement.appendChild(portal); } catch(e){}
+        }
+
+        // 5) move button into portal and enable pointer events on button
+        portal.appendChild(btn);
+        btn.style.pointerEvents = 'auto';
+        btn.style.position = 'fixed';
+        btn.style.bottom = '30px';
+        btn.style.right = '30px';
+        btn.style.zIndex = '2147483647';
+        btn.classList.remove('stuck'); // cleanup if you used that
+        console.log('Button moved into portal and style applied');
+
+        // 6) add override CSS (id-based, appended once)
+        if(!document.getElementById('rushi-backtop-override-css')){
+            const style = document.createElement('style');
+            style.id = 'rushi-backtop-override-css';
+            style.innerHTML = `
+                #rushi-backtop-portal { position: fixed !important; bottom: 30px !important; right: 30px !important; z-index: 2147483647 !important; pointer-events: none !important; }
+                #rushi-backtop-portal > * { pointer-events: auto !important; }
+                #${ID} { position: fixed !important; bottom: 30px !important; right: 30px !important; z-index: 2147483647 !important; pointer-events: auto !important; }
+                @media (max-width: 768px){ #rushi-backtop-portal, #${ID} { bottom: 20px !important; right: 20px !important; } }
+                @media (max-width: 480px){ #rushi-backtop-portal, #${ID} { bottom: 15px !important; right: 15px !important; } }
+                .rushi-backtop-temp-override { transform: none !important; filter: none !important; perspective: none !important; will-change: auto !important; overflow: visible !important; }
+            `;
+            document.head.appendChild(style);
+            console.log('Injected override CSS');
+        }
+
+        // 7) If problematic ancestors found, add temporary class to them (logged) so we can revert
+        const altered = [];
+        problems.forEach(el=>{
+            if(!el.classList.contains('rushi-backtop-temp-override')){
+                el.classList.add('rushi-backtop-temp-override');
+                altered.push(el);
+                el.setAttribute('data-rushi-backtop-original', 'applied'); // marker only
+            }
+        });
+        if(altered.length) console.warn('[rushi] Temporarily overrode', altered.length, 'ancestors. This may change layout. Revert below.');
+
+        // 8) find actual scroll container
+        function findScrollContainer(){
+            // prefer scrollingElement
+            try {
+                const se = document.scrollingElement || document.documentElement;
+                if(se.scrollHeight > se.clientHeight) return window;
+            } catch(e){}
+            // check common selectors
+            const candidates = ['main','#main','.main','.site-main','.content','.scroll-container'];
+            for(const sel of candidates){
+                const el = document.querySelector(sel);
+                if(el){
+                    const cs = getComputedStyle(el);
+                    if((cs.overflowY === 'auto' || cs.overflowY === 'scroll') && el.scrollHeight > el.clientHeight) return el;
+                }
+            }
+            // fallback: search for any scrollable element
+            const all = document.querySelectorAll('*');
+            for(const el of all){
+                const cs = getComputedStyle(el);
+                if((cs.overflowY === 'auto' || cs.overflowY === 'scroll') && el.scrollHeight > el.clientHeight){
+                    return el;
+                }
+            }
+            return window;
+        }
+
+        const scrollContainer = findScrollContainer();
+        console.log('[rushi] Scroll container ->', (scrollContainer === window) ? 'window' : scrollContainer);
+
+        // 9) attach show/hide and click handlers for the detected container
+        function handleScroll(){
+            const y = (scrollContainer === window) ? window.scrollY : scrollContainer.scrollTop;
+            if(y > 10) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        }
+        if(scrollContainer === window) window.addEventListener('scroll', handleScroll, {passive:true});
+        else scrollContainer.addEventListener('scroll', handleScroll, {passive:true});
+        handleScroll();
+
+        btn.addEventListener('click', function(e){
+            e.preventDefault();
+            if(scrollContainer === window) window.scrollTo({top:0, behavior:'smooth'});
+            else scrollContainer.scrollTo({top:0, behavior:'smooth'});
+        });
+
+        // 10) provide revert helper on window so you can undo overrides in console:
+        window.__rushiBackToTopRevert = function(){
+            try{
+                // remove temp class
+                document.querySelectorAll('.rushi-backtop-temp-override').forEach(el=>{
+                    el.classList.remove('rushi-backtop-temp-override');
+                    el.removeAttribute('data-rushi-backtop-original');
+                });
+                // remove injected style
+                const s = document.getElementById('rushi-backtop-override-css');
+                if(s) s.remove();
+                // move button back to body end (optional)
+                const portalEl = document.getElementById('rushi-backtop-portal');
+                if(portalEl && portalEl.contains(btn)){
+                    document.body.appendChild(btn);
+                    portalEl.remove();
+                }
+                console.log('[rushi] Reverted temporary overrides.');
+            }catch(er){ console.error(er); }
+        };
+
+        console.log('[rushi] Done. To revert temporary overrides run: window.__rushiBackToTopRevert()');
+        console.groupEnd();
+    })();
 }
 
 // ============================================================================
@@ -906,4 +1179,115 @@ window.FormHandler = {
 };
 
 window.closePopup = closePopup;
-window.createModal = createModal; 
+window.createModal = createModal;
+
+// ============================================================================
+// GOOGLE ANALYTICS ENHANCED TRACKING
+// ============================================================================
+
+// Enhanced tracking for user interactions
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Track form submissions
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', function() {
+      const formType = this.querySelector('input[name="formType"]')?.value || 'contact';
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          'event_category': 'engagement',
+          'event_label': formType + '_form',
+          'value': 1
+        });
+      }
+    });
+  });
+  
+  // Track button clicks
+  const buttons = document.querySelectorAll('.btn, .hero-sponsor-btn, .hero-watch-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      const buttonText = this.textContent.trim();
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'button_click', {
+          'event_category': 'engagement',
+          'event_label': buttonText,
+          'value': 1
+        });
+      }
+    });
+  });
+  
+  // Track external link clicks
+  const externalLinks = document.querySelectorAll('a[target="_blank"]');
+  externalLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'external_link_click', {
+          'event_category': 'engagement',
+          'event_label': this.href,
+          'value': 1
+        });
+      }
+    });
+  });
+  
+  // Track file downloads
+  const downloads = document.querySelectorAll('a[download], a[href*=".pdf"]');
+  downloads.forEach(download => {
+    download.addEventListener('click', function() {
+      const fileName = this.href.split('/').pop();
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'file_download', {
+          'event_category': 'engagement',
+          'event_label': fileName,
+          'value': 1
+        });
+      }
+    });
+  });
+  
+  // Track scroll depth
+  let maxScroll = 0;
+  window.addEventListener('scroll', function() {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+      maxScroll = scrollPercent;
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'scroll_depth', {
+          'event_category': 'engagement',
+          'event_label': scrollPercent + '%',
+          'value': scrollPercent
+        });
+      }
+    }
+  });
+  
+  // Track section views for single page navigation
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      const section = this.getAttribute('href').substring(1);
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'section_view', {
+          'event_category': 'navigation',
+          'event_label': section,
+          'value': 1
+        });
+      }
+    });
+  });
+  
+  // Track time on page
+  let startTime = Date.now();
+  window.addEventListener('beforeunload', function() {
+    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+    if (typeof gtag !== 'undefined' && timeOnPage > 10) {
+      gtag('event', 'time_on_page', {
+        'event_category': 'engagement',
+        'event_label': 'seconds',
+        'value': timeOnPage
+      });
+    }
+  });
+}); 

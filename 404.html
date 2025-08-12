@@ -1,21 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Page Not Found | Team Avinya</title>
-  <link rel="stylesheet" href="src/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <title>404 - Page Not Found | Team Avinya Racing</title>
+  <meta name="description" content="Page not found - Team Avinya electric ATV racing team. Navigate back to our main pages to explore our SAEINDIA eBAJA competition journey.">
+  <meta name="keywords" content="404, page not found, Team Avinya, electric ATV racing, SAEINDIA eBAJA, ADYPU">
+  <meta name="author" content="Team Avinya">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="404 - Page Not Found | Team Avinya Racing">
+  <meta property="og:description" content="Page not found - Team Avinya electric ATV racing team. Navigate back to our main pages to explore our SAEINDIA eBAJA competition journey.">
+  <meta property="og:image" content="https://teamavinyaracing.com/src/images/Avinya Logo.png">
+  <meta property="og:url" content="https://teamavinyaracing.com/404.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Team Avinya Racing">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="404 - Page Not Found | Team Avinya Racing">
+  <meta name="twitter:description" content="Page not found - Team Avinya electric ATV racing team. Navigate back to our main pages to explore our SAEINDIA eBAJA competition journey.">
+  <meta name="twitter:image" content="https://teamavinyaracing.com/src/images/Avinya Logo.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://teamavinyaracing.com/404.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="src/images/Avinya Logo.png">
+  <link rel="apple-touch-icon" href="src/images/Avinya Logo.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "404 - Page Not Found",
+    "description": "Page not found - Team Avinya electric ATV racing team",
+    "url": "https://teamavinyaracing.com/404.html",
+    "mainEntity": {
+      "@type": "WebPage",
+      "name": "404 Error Page",
+      "description": "Error page for Team Avinya website"
+    }
+  }
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-400XYKW3HW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-400XYKW3HW');
+  </script>
+  
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/responsive.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     /* 404 Page Specific Styles */
     .error-container {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
       position: relative;
       overflow: hidden;
+      padding: 0;
     }
 
     .error-container::before {
@@ -32,88 +90,96 @@
 
     .error-content {
       text-align: center;
-      max-width: 800px;
-      padding: 2rem;
+      max-width: 700px;
+      padding: 1rem;
       position: relative;
       z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .error-code {
-      font-size: 8rem;
+      font-size: 5rem;
       font-weight: 900;
       color: var(--primary-color);
       margin: 0;
       text-shadow: 0 0 30px rgba(255, 60, 56, 0.5);
       animation: pulse 2s ease-in-out infinite;
+      line-height: 1;
     }
 
     .error-title {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       color: var(--text-light);
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .error-subtitle {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
-      line-height: 1.6;
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
 
     .buggy-repair {
       position: relative;
-      margin: 3rem 0;
-      padding: 2rem;
+      margin: 1rem 0;
+      padding: 1rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
+      border-radius: 10px;
       border: 1px solid rgba(255, 60, 56, 0.2);
       backdrop-filter: blur(10px);
     }
 
     .buggy-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
       animation: float 3s ease-in-out infinite;
     }
 
     .repair-text {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       color: var(--text-light);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
     .charging-status {
       display: inline-block;
-      padding: 0.5rem 1rem;
+      padding: 0.3rem 0.8rem;
       background: linear-gradient(135deg, #2ecc71, #27ae60);
       color: white;
-      border-radius: 20px;
-      font-size: 0.9rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
       font-weight: 500;
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       animation: glow 2s ease-in-out infinite alternate;
     }
 
     .error-actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .error-btn {
-      padding: 12px 24px;
+      padding: 8px 16px;
       background: var(--primary-color);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 500;
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
     }
 
     .error-btn:hover {
@@ -134,23 +200,25 @@
     }
 
     .team-info {
-      margin-top: 3rem;
-      padding: 1.5rem;
+      margin-top: 1rem;
+      padding: 1rem;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid rgba(255, 60, 56, 0.1);
     }
 
     .team-info h3 {
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      white-space: nowrap;
     }
 
     .team-info p {
       color: var(--text-muted);
-      margin: 0.5rem 0;
-      font-size: 0.95rem;
+      margin: 0.2rem 0;
+      font-size: 0.8rem;
+      line-height: 1.3;
     }
 
     @keyframes pulse {
@@ -170,38 +238,81 @@
 
     @media (max-width: 768px) {
       .error-code {
-        font-size: 6rem;
+        font-size: 4rem;
+        white-space: nowrap;
       }
       
       .error-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        white-space: nowrap;
       }
       
       .error-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .error-content {
+        padding: 0.5rem;
+      }
+      
+      .buggy-repair {
+        margin: 0.8rem 0;
+        padding: 0.8rem;
+      }
+      
+      .team-info {
+        margin-top: 0.8rem;
+        padding: 0.8rem;
       }
       
       .error-actions {
-        flex-direction: column;
-        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
       }
       
       .error-btn {
-        width: 200px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
       }
     }
 
     @media (max-width: 480px) {
       .error-code {
-        font-size: 4rem;
+        font-size: 3rem;
+        white-space: nowrap;
       }
       
       .error-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        white-space: nowrap;
+      }
+      
+      .error-subtitle {
+        font-size: 0.8rem;
       }
       
       .buggy-icon {
-        font-size: 3rem;
+        font-size: 2rem;
+      }
+      
+      .repair-text {
+        font-size: 0.8rem;
+      }
+      
+      .team-info p {
+        font-size: 0.7rem;
+      }
+      
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      
+      .error-btn {
+        width: 140px;
+        padding: 6px 8px;
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -237,14 +348,546 @@
 
       <div class="team-info" data-aos="fade-up" data-aos-delay="400">
         <h3>🏎️ Team Avinya</h3>
-        <p><strong>Open Throttle Racing Club</strong> | ADYPU</p>
+        <p><strong>ADYPU</strong></p>
         <p>Email: <a href="mailto:team.avinya.adypu@gmail.com" style="color: var(--primary-color);">team.avinya.adypu@gmail.com</a></p>
         <p>Location: Ajeenkya DY Patil University, Pune, India</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Designed and developed with ❤️ by <a href="about.html#creator" style="color: var(--primary-color);">Rushikesh Pattiwar</a></p>
       </div>
     </div>
   </div>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-button" aria-label="Back to top" title="Back to top">
+    <svg class="back-to-top-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="currentColor"/>
+    </svg>
+  </button>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="src/js/script.js"></script>
+  
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-popup" class="cookie-popup">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <span class="cookie-icon">🍪</span>
+        <p>We use cookies to enhance your experience and analyze site traffic.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="accept-all" class="btn btn-primary">Accept All</button>
+        <button id="reject-all" class="btn btn-secondary">Reject All</button>
+        <button id="cookie-settings" class="btn btn-link">Cookie Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div id="cookie-modal" class="cookie-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🍪 Cookie Preferences</h3>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="essential" checked disabled>
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Essential</strong>
+              <span>Required for the website to function properly</span>
+            </div>
+          </label>
+        </div>
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="analytics" checked>
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Analytics</strong>
+              <span>Help us understand how visitors interact with our website</span>
+            </div>
+          </label>
+        </div>
+        <div class="cookie-category">
+          <label class="cookie-toggle">
+            <input type="checkbox" id="marketing">
+            <span class="toggle-slider"></span>
+            <div class="toggle-content">
+              <strong>Marketing</strong>
+              <span>Used to deliver personalized advertisements</span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="save-preferences" class="btn btn-primary">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Cookie Popup Styles */
+    .cookie-popup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 16px 20px;
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dark mask overlay when cookie popup is visible */
+    .cookie-popup::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cookie-popup.show::before {
+      opacity: 1;
+    }
+
+    .cookie-popup.show {
+      transform: translateY(0);
+    }
+
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Desktop-specific positioning to avoid back-to-top button */
+    @media (min-width: 769px) {
+      .cookie-content {
+        margin: 0 20px 0 20px;
+        justify-content: flex-start;
+        gap: 30px;
+      }
+      
+      .cookie-text {
+        flex: 0 1 auto;
+        max-width: 600px;
+      }
+      
+      .cookie-buttons {
+        flex-shrink: 0;
+      }
+    }
+
+    .cookie-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .cookie-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .cookie-text p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: #ff3c38;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #e63531;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-link {
+      background: transparent;
+      color: #ff3c38;
+      padding: 8px 0;
+    }
+
+    .btn-link:hover {
+      color: #ff6b6b;
+      text-decoration: underline;
+      background: rgba(255, 60, 56, 0.1);
+      border-radius: 4px;
+      padding: 8px 8px;
+    }
+
+    /* Modal Styles */
+    .cookie-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(15px);
+      border-radius: 12px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 0;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: #ff3c38;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #999;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .modal-body {
+      padding: 20px 24px;
+    }
+
+    .cookie-category {
+      margin-bottom: 16px;
+    }
+
+    .cookie-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .cookie-toggle {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .cookie-toggle:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .toggle-slider {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    input[type="checkbox"]:checked + .toggle-slider {
+      background: #ff3c38;
+    }
+
+    input[type="checkbox"]:checked + .toggle-slider::before {
+      transform: translateX(20px);
+    }
+
+    input[type="checkbox"]:disabled + .toggle-slider {
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0.6;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .toggle-content {
+      flex: 1;
+    }
+
+    .toggle-content strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .toggle-content span {
+      font-size: 12px;
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+
+    .modal-footer {
+      padding: 0 24px 24px;
+      text-align: right;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .cookie-text {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .cookie-buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .modal-content {
+        margin: 20px;
+        max-width: none;
+      }
+
+      .modal-header,
+      .modal-body,
+      .modal-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cookie-popup {
+        padding: 12px 16px;
+      }
+
+      .cookie-text p {
+        font-size: 13px;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <script>
+    // Cookie Consent Functionality
+    class CookieConsent {
+      constructor() {
+        this.popup = document.getElementById('cookie-popup');
+        this.modal = document.getElementById('cookie-modal');
+        this.init();
+      }
+
+      init() {
+        // Check if user has already made a choice
+        if (localStorage.getItem('cookieConsent')) {
+          return;
+        }
+
+        // Show popup with animation
+        setTimeout(() => {
+          this.popup.classList.add('show');
+        }, 1000);
+
+        this.bindEvents();
+      }
+
+      bindEvents() {
+        // Accept all cookies
+        document.getElementById('accept-all').addEventListener('click', () => {
+          this.savePreferences({
+            essential: true,
+            analytics: true,
+            marketing: true
+          });
+          this.hidePopup();
+        });
+
+        // Reject all cookies
+        document.getElementById('reject-all').addEventListener('click', () => {
+          this.savePreferences({
+            essential: true,
+            analytics: false,
+            marketing: false
+          });
+          this.hidePopup();
+        });
+
+        // Open settings modal
+        document.getElementById('cookie-settings').addEventListener('click', () => {
+          this.showModal();
+        });
+
+        // Close modal
+        document.getElementById('close-modal').addEventListener('click', () => {
+          this.hideModal();
+        });
+
+        // Save preferences
+        document.getElementById('save-preferences').addEventListener('click', () => {
+          const preferences = {
+            essential: true, // Always required
+            analytics: document.getElementById('analytics').checked,
+            marketing: document.getElementById('marketing').checked
+          };
+          this.savePreferences(preferences);
+          this.hideModal();
+          this.hidePopup();
+        });
+
+        // Close modal when clicking outside
+        this.modal.addEventListener('click', (e) => {
+          if (e.target === this.modal) {
+            this.hideModal();
+          }
+        });
+      }
+
+      showModal() {
+        this.modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      hideModal() {
+        this.modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      hidePopup() {
+        this.popup.classList.remove('show');
+        setTimeout(() => {
+          this.popup.style.display = 'none';
+        }, 400);
+      }
+
+      savePreferences(preferences) {
+        localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+        localStorage.setItem('cookiesAccepted', 'custom');
+        localStorage.setItem('analyticsCookies', preferences.analytics.toString());
+        localStorage.setItem('marketingCookies', preferences.marketing.toString());
+        localStorage.setItem('essentialCookies', 'true');
+      }
+    }
+
+    // Initialize cookie consent when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new CookieConsent();
+    });
+  </script>
+  
   <script>
     AOS.init({
       duration: 800,
@@ -261,7 +904,7 @@
       // Simulate charging progress
       let progress = 0;
       const chargingInterval = setInterval(() => {
-        progress += 0.1;
+        progress += 1;
         if (progress <= 100) {
           chargingStatus.textContent = `🔋 Recharging... ${progress}%`;
         } else {
@@ -269,7 +912,7 @@
           chargingStatus.textContent = '✅ Fully Charged!';
           chargingStatus.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
         }
-      }, 1000);
+      }, 2000); // 2 second intervals for much slower charging
 
       // Add click effect to buggy icon
       buggyIcon.addEventListener('click', function() {
