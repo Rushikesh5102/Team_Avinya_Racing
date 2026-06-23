@@ -9,6 +9,8 @@ The website was developed to showcase the team's achievements, vehicle developme
 ## 🌐 Live Website
 
 **Official Website:** https://teamavinya.in
+<img width="953" height="446" alt="image" src="https://github.com/user-attachments/assets/ddde18f8-dd39-4415-9305-b3cf05254440" />
+
 
 ---
 
